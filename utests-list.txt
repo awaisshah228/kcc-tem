@@ -1,0 +1,151 @@
+
+
+## Issues in Validators 
+
+- 池子即使保证金不够，只要没有被惩罚，也应该属于 enabled 状态； 不能因为添加了保证金，就从 disabled 变成 enabled 的状态 
+
+
+///// 
+
+
+
+
+## Proposal.sol 
+
+- initialize 
+ - 初始化函数只能调用一次 （初始化的时候，会初始化 Admin 账号， 以及 Validator 合约账号）  
+ - 查询 admin 账号是否和初始化传入一致 
+
+- createProposal 
+ - 只能管理员调用  
+ - 创建成功会返回一个 proposalID，用这个 ID 能够查到创建的 Proposal  
+ - 创建 Proposal emit 的事件是对的 （TODO：可能使用 openzepplelin 的插件）   
+
+- isProposalPassed & voteProposal 
+ - 一个曾经通过了的，但是已经过了使用有效期的 Proposal，使用 isProposalPassed 查询返回应为 false  
+ - 一个已经过了“投票有效期” 的 proposal， 将不能再投票  
+ - 当一个 proposal 有超过一半的 validator 投赞成票的时时候，就直接通过 
+ - 当一个 proposal 有超过一半的 validator 投拒绝票的时候，就直接被拒绝   
+ - 同一个 validator 对一个 proposal，只能投票一次  
+ - 只有 active validator 可以投票  
+ - 事件验证： LogVote && LogPassProposal  
+
+## Punish.sol 
+
+- initialize 
+ - 初始化函数只能调用一次 （初始化的时候，会初始化 Admin 账号， 以及 Validator 合约账号）  
+ - 查询 admin 账号是否和初始化传入一致  
+
+- punish 
+ - 只能 miner 调用  
+ - 一个区块只能调用一次  
+ - 多次惩罚一个 val，但是次数小于 punishThreshold ，那么只是 “missedBlocksCounter” 对应地增加  
+ - 多次惩罚一个 val，但是次数大于等于 punishThreshold 但是小于 removeThreshold，  “missedBlocksCounter” 对应地增加，且会调用一次 VALIDATOR_CONTRACT.punish 扣除罚金，但是不会移除 validator   
+ - 多次惩罚一个 val，但是次数等于 removeThreshold， 会扣除罚金，且移除 validator, 同时清空在 Punish 合约里面的惩罚记录  
+
+- decreaseMissedBlocksCounter 
+ - 只有 miner 可以调用 
+ - 在一个区块内只能调用一次  
+ - 只能在一个 epoch 的第一个区块才可以调用 
+ - 如果一个 val 之前的 missedBlocksCounter 不为零，那么这个函数执行之后，val 的 missedBlocksCounter 将会对应减少    
+
+
+## ReservePool.sol 
+
+
+- withdrawBlockReward 
+ - 只有 Validator 合约才可以调用  
+ - 一个区块内只能调用一次   
+ - 验证取出的  KCS 的数量是对的 
+
+- setState 
+ - 只有 admin 可以调用  
+ - 确保修改之后的状态是正确的  
+- setBlockRewardAmount
+ - 只有 admin 可以调用 
+ - 确保修改之后的值是正确的  
+
+- receive  
+ - 确保 fallback 函数能够正常接受 kcs  
+
+
+## Validators.sol 
+
+- initialize 
+ - 初始化函数只能调用一次 （初始化的时候，会初始化 Admin 账号， 以及 Validator 合约账号）  
+ - 查询 admin 账号是否和初始化传入一致 
+ - 需要验证初始化传入的 validators 设置成功： getTopValidators,getActiveValidators => 都应该返回初始化时传入的 validators 
+
+- setMinMarginAmount 
+ - 只能 admin 调用 
+ - 验证修改最少保证金有效  
+- setMaxPunishmentAmount 
+ - 只有 admin 可以调用 
+ - 验证修改最大惩罚金额有效  
+- setRevokeLockingDuration 
+ - 只有 admin 可以调用 
+ - 验证修改有效 
+- setFeeSetLockingDuration 
+ - 只有 admin 可以调用 
+ - 验证修改有效 
+- setPoolStatus 
+ - 只有 admin 可以调用  
+ - 确保状态修改成功 
+- updateCandidateInfo 
+ - 只有 admin 可以调用 
+ - 检查更新的 meta 是否正确 
+
+- updateActiveValidatorSet  & getActiveValidators 
+ - 只有 miner 可以调用  
+ - 验证设置之后， activeValidatorSet 发生变化  
+
+
+- addValidator 
+ - 这个函数可以由 admin 或者是 提案涉及的 Validator 本身调用  
+ - 验证 validator 传入的创建信息 和 之后查询的一致  
+    - 如果调用时候，传入的保证金足够，那么 Validator 对应的 pool 是启用的状态 
+    - 如果调用的时候，传入的保证金不够，那么 Validator 对应的 pool 是禁用状态  
+    - 注意检查 投票数量  
+ - 如果 validator 之前创建过 Pool，Pool 将会复用  
+    - 如果之前的保证金不为零，那么这次打入的保证金会累加在之前的数额上  
+    - 注意检查 总的投票数量  
+
+- setFeeSharesOfValidator  
+ - 只有 Validator 和它的 manager 可以调用  
+ - 验证修改频率的限制  
+ - 修改之后，不是马上生效，要下一个 epoch 才生效 （？？） 
+
+- distributeBlockReward  
+ - 只能 miner 调用  
+ - 一个区块只能调用一次  
+ - 比如有 n 个 active validators，验证每一个 pool 的 accRewardPerShare && pendingFee  
+ - 验证收支平衡： 所有 validators 的 Pool 分得奖励 + （旧的 RewardsLeft）- （新的 RewardsLeft） == 从 ReservePool 获得的 KCS 数量 （使用多个 cases，Staker/validator 的数量从少到多）（重点，cases 要多一点） 
+
+
+
+- getTopValidators 
+ - 构造不同的 vote cases （vote/redeem），确定 getTopValidators 返回的结果是对的 
+- depositMargin 
+ - 增加保证金之后， Pool 里面的信息（投票数等）， Validators 中的信息（总投票数），以及可能的 getTopValidators 的返回结果发生变化 
+- redeemMargin 
+ - 移除保证金之后， Pool 里面的信息（投票数等）， Validators 中的信息（总投票数），以及可能的 getTopValidators 的返回结果发生变化 
+- vote & revokeVote 
+ - 转入金额不是整数，是否处理正常  
+ - 投票之后，验证票数是否正确（也要检查 pool 里面的总票数 和 Validators 合约里面的总票数）  
+ - revokeVote 之后，票数变化是否正确； 锁定时间是否正确 
+
+- punish 
+ - 扣除罚金逻辑是否正确（marginRewards & pendingFee & maxPunishmentAmount） 
+ - 如果要移除 validator，状态是否一样 （getTopValidators 结果可能发生变化）  
+
+- withdraw  
+ - 检查 withdraw 数量是否正确  
+ - 锁定期内，无法 withdraw  
+
+- claimReward  
+ - 检查 收益 数量是否正确  
+ - 检查 UserInfo 字段更新是否正常 
+
+- getUserVotingSummary 
+ - 检查一个用户在所有 Validators 的 Pools 里面的质押和 pendingReward 情况是否正确 （多个 cases ） 
+
