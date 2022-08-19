@@ -217,6 +217,3 @@ contract Proposal is Params, Admin, IProposal {
         return true;
     }
 }
-
-
-
