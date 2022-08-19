@@ -9,6 +9,7 @@
     "@openzeppelin/contracts": "3.4.0",
     "@openzeppelin/contracts-ethereum-package": "3.0.0",
     "@openzeppelin/contracts-upgradeable": "3.4.1",
+    "@poanet/solidity-flattener": "^3.0.8",
     "nunjucks": "^3.2.3"
   },
   "devDependencies": {
