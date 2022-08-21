@@ -102,6 +102,7 @@ describe("validators: distributeBlockReward", function () {
         const blockReward = ethers.constants.WeiPerEther.mul(5);
         await reservePoolMock.setBlockReward(blockReward);
         await setCoinbase(deployer.address);
+        
 
         // number of active validators 
         // block reward will be distributed to these validators 
@@ -130,8 +131,12 @@ describe("validators: distributeBlockReward", function () {
         const rewardsPerPool = rewardPerBallot.mul(selfBallotsPerPool);
         // the commission fee paid to pool's validator 
         const feeRewardPerPool = rewardsPerPool.mul(INITIAL_FEE_SHARE).div(10000);
+        console.log("block reward",blockReward.toString())
+        console.log("fee Reward",(feeRewardPerPool).toString())
         // the accRewardPershare of each pool 
         const accRewardPerSharePerPool = rewardsPerPool.sub(feeRewardPerPool).mul(1e12).div(MIN_SELF_BALLOTS);
+        // console.log(accRewardPerSharePerPool)
+       console.log("accure",(accRewardPerSharePerPool).toString()) 
 
 
         for(let i =0; i < numOfActiveValidators; ++i){

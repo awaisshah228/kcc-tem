@@ -866,7 +866,7 @@ contract Validators is
         marginLockingDuration = 15 days;
         feeSetLockingDuration = 1 days;
         maxPunishmentAmount = 100 ether;
-        minSelfBallots = 0;
+        minSelfBallots = 10000;
 
         require(
             address(this).balance >=
