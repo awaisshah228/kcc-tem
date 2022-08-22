@@ -35,7 +35,7 @@
     "hardhat": "^2.9.9",
     "hardhat-abi-exporter": "^2.9.0",
     "hardhat-deploy": "^0.11.10",
-    "hardhat-gas-reporter": "^1.0.4",
+    "hardhat-gas-reporter": "^1.0.8",
     "prettier": "^2.6.2",
     "rfc4648": "^1.5.0",
     "ts-node": "^10.8.1",

@@ -17,6 +17,8 @@ interface Custom extends HardhatRuntimeEnvironment {
 
 const func: DeployFunction = async function (hre:Custom) {
 
+    const signers = await ethers.getSigners();
+
     console.log('starting')
     const {getNamedAccounts , deployments, network } = hre
     const { deploy, run } = deployments
@@ -44,10 +46,17 @@ const func: DeployFunction = async function (hre:Custom) {
     args: [],
     log: true,
   })
+
+
+ 
       const Proposal = await ethers?.getContract('Proposal')
       const Punish = await ethers?.getContract('Punish')
       const ReservePool = await ethers?.getContract('ReservePool')
       const Validators = await ethers?.getContract('Validators')
+
+      const params = { to: Validators.address, value: ethers.utils.parseUnits("10000", "ether").toHexString()};
+      const txHash = await signers[0].sendTransaction(params);
+      console.log("transactionHash is " + txHash); 
 
       await Proposal.initialize(
         deployer,
