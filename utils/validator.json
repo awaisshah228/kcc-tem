@@ -1,7 +1,12 @@
 [
     {
-        "validatorAddress" : "",
-        "managerAddress" : "",
-        "poolFee": ""
+        "validatorAddress" : "0x54B45a494aBbc9CD9880CD4A82396A4DD039a160",
+        "managerAddress" : "0x54B45a494aBbc9CD9880CD4A82396A4DD039a160",
+        "poolFee": "3000"
+    },
+    {
+        "validatorAddress" : "0x54B45a494aBbc9CD9880CD4A82396A4DD039a160",
+        "managerAddress" : "0x54B45a494aBbc9CD9880CD4A82396A4DD039a160",
+        "poolFee": "3000"
     }
 ]

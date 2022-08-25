@@ -3,6 +3,7 @@ import { ReservePool } from './../typechain/ReservePool.d';
 import { Punish } from './../typechain/Punish.d';
 import { Proposal } from './../typechain/Proposal.d';
 import { ethers } from 'hardhat';
+import validatorData from '../utils/validator.json'
 const fs = require('fs');
 import {HardhatRuntimeEnvironment} from 'hardhat/types';
 import {DeployFunction} from 'hardhat-deploy/types';
@@ -24,7 +25,21 @@ const func: DeployFunction = async function (hre:Custom) {
     const { deploy, run } = deployments
     const { deployer } = await getNamedAccounts()
     console.log(deployer)
-//   const root = await ethers.getContract('Root')
+    // const validatorObj=JSON.parse(validatorData)
+    console.log(typeof validatorData)
+    // console.log(validatorData)
+    // const validatorAddress: string[]=[]
+    const validAddress  = validatorData.map((valid)=>{
+              return valid.validatorAddress
+    })
+    const managerAddress  = validatorData.map((valid)=>{
+              return valid.validatorAddress
+    })
+    const poolFee  = validatorData.map((valid)=>{
+              return valid.poolFee
+    })
+    
+  // const root = await ethers.getContract('Root')
 
   await deploy("Proposal", {
     from: deployer,
@@ -53,10 +68,15 @@ const func: DeployFunction = async function (hre:Custom) {
       const Punish = await ethers?.getContract('Punish')
       const ReservePool = await ethers?.getContract('ReservePool')
       const Validators = await ethers?.getContract('Validators')
-
-      const params = { to: Validators.address, value: ethers.utils.parseUnits("10000", "ether").toHexString()};
+       console.log(validatorData.length)
+      const self=eval(`10000*${validatorData.length}`)
+      console.log(self)
+      const params = { to: Validators.address, value: ethers.utils.parseUnits(String(self), "ether").toHexString()};
       const txHash = await signers[0].sendTransaction(params);
       console.log("transactionHash is " + txHash); 
+
+     
+      
 
       await Proposal.initialize(
         deployer,
@@ -83,9 +103,9 @@ const func: DeployFunction = async function (hre:Custom) {
         ethers.utils.parseEther('1')
       );
       await Validators.initialize(
-        [deployer],
-        [deployer],
-        [3000],
+        [...validAddress],
+        [...managerAddress],
+        [...poolFee],
         deployer,
         Validators.address,
         Punish.address,
