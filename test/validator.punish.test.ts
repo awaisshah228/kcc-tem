@@ -32,8 +32,8 @@ describe("validators: test punish", function () {
     const REDEEM_LOCK_DURATION = 3 * 24 * 60 * 60; // 3 days
     const FEE_SET_LOCKING_DURATION = 1 * 24 * 60 * 60; // 1 day
     const INITIAL_FEE_SHARE = 2000; // initial commission fee rate for validator （20%）
-    const MIN_SELF_BALLOTS_IN_KCS = ethers.constants.WeiPerEther.mul(10000); // minimum Self Ballots denominated in KCS
-    const MIN_SELF_BALLOTS = MIN_SELF_BALLOTS_IN_KCS.div(ethers.constants.WeiPerEther);
+    const MIN_SELF_BALLOTS_IN_egc = ethers.constants.WeiPerEther.mul(10000); // minimum Self Ballots denominated in egc
+    const MIN_SELF_BALLOTS = MIN_SELF_BALLOTS_IN_egc.div(ethers.constants.WeiPerEther);
 
     beforeEach(async () => {
 
@@ -52,8 +52,8 @@ describe("validators: test punish", function () {
         initialValidators = others.slice(0, 7); // the first 7 candidate as the init validators
 
     
-        // initial KCS in contract 
-        await setBalance(validatorContract.address, MIN_SELF_BALLOTS_IN_KCS.mul(initialValidators.length));
+        // initial egc in contract 
+        await setBalance(validatorContract.address, MIN_SELF_BALLOTS_IN_egc.mul(initialValidators.length));
         await setBalance(reservePoolMock.address, ethers.constants.WeiPerEther.mul(7 * 3 * 100));
 
 
@@ -75,7 +75,7 @@ describe("validators: test punish", function () {
     it("pending reward greater than maxPunishmentAmount", async function () {
 
 
-        // set setMaxPunishmentAmount = 1 kcs
+        // set setMaxPunishmentAmount = 1 egc
         await validatorContract.connect(admin).setMaxPunishmentAmount(ethers.utils.parseEther("1"), {gasPrice: 0});
         let maxPunishmentAmount = await validatorContract.maxPunishmentAmount();
         //console.log("maxPunishmentAmount: ", maxPunishmentAmount);
@@ -124,7 +124,7 @@ describe("validators: test punish", function () {
 
 
     it('the sum of pending rewards and selfBallotsRewards was less than maxPunishmentAmount', async function () {
-        // set setMaxPunishmentAmount = 2 kcs
+        // set setMaxPunishmentAmount = 2 egc
         await validatorContract.connect(admin).setMaxPunishmentAmount(ethers.utils.parseEther("2"), {gasPrice: 0});
         let maxPunishmentAmount = await validatorContract.maxPunishmentAmount();
         //console.log("maxPunishmentAmount: ", maxPunishmentAmount);
@@ -163,7 +163,7 @@ describe("validators: test punish", function () {
 
     it('the sum of pending rewards and selfBallotsRewards was greater than maxPunishmentAmount', async function () {
 
-        // set setMaxPunishmentAmount = 0.8 kcs
+        // set setMaxPunishmentAmount = 0.8 egc
         await validatorContract.connect(admin).setMaxPunishmentAmount(ethers.utils.parseEther("0.8"), {gasPrice: 0});
         let maxPunishmentAmount = await validatorContract.maxPunishmentAmount();
         //console.log("maxPunishmentAmount: ", maxPunishmentAmount);
@@ -213,7 +213,7 @@ describe("validators: test punish", function () {
 
         //const reserveAmount = await ethers.provider.getBalance(reservePoolMock.address);
         // reservePool setup
-        // block reward is 5 kcs
+        // block reward is 5 egc
         const blockReward = ethers.constants.WeiPerEther.mul(7);
         await reservePoolMock.setBlockReward(blockReward);
         await setCoinbase(deployer.address);
@@ -278,7 +278,7 @@ describe("validators: test punish", function () {
             .to.be.equal(rewardsLeft);
 
 
-        expect(await ethers.provider.getBalance(validatorContract.address)).to.equal(MIN_SELF_BALLOTS_IN_KCS.mul(7).add(blockReward));
+        expect(await ethers.provider.getBalance(validatorContract.address)).to.equal(MIN_SELF_BALLOTS_IN_egc.mul(7).add(blockReward));
 
 
 
@@ -288,7 +288,7 @@ describe("validators: test punish", function () {
         }
 
 
-        expect(await ethers.provider.getBalance(validatorContract.address)).to.equal(MIN_SELF_BALLOTS_IN_KCS.mul(7).add(blockReward).sub(blockReward));
+        expect(await ethers.provider.getBalance(validatorContract.address)).to.equal(MIN_SELF_BALLOTS_IN_egc.mul(7).add(blockReward).sub(blockReward));
         //expect(await ethers.provider.getBalance(reservePoolMock.address)).to.equal(blockReward);
 
 

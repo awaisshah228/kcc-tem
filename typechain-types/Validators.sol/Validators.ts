@@ -728,7 +728,7 @@ export interface ValidatorsInterface extends utils.Interface {
     "DepositMargin(address,address,uint256)": EventFragment;
     "NewValidatorAdded(address,address,uint256,bool)": EventFragment;
     "PunishValidator(address,uint256,uint256)": EventFragment;
-    "ReceiveKCS(address,uint256)": EventFragment;
+    "Receiveegc(address,uint256)": EventFragment;
     "RedeemMargin(address,address,uint256)": EventFragment;
     "Revoke(address,address,uint256,uint256)": EventFragment;
     "RewardTransfer(address,address,uint256)": EventFragment;
@@ -749,7 +749,7 @@ export interface ValidatorsInterface extends utils.Interface {
   getEvent(nameOrSignatureOrTopic: "DepositMargin"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "NewValidatorAdded"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "PunishValidator"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "ReceiveKCS"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "Receiveegc"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "RedeemMargin"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "Revoke"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "RewardTransfer"): EventFragment;
@@ -826,16 +826,16 @@ export type PunishValidatorEvent = TypedEvent<
 
 export type PunishValidatorEventFilter = TypedEventFilter<PunishValidatorEvent>;
 
-export interface ReceiveKCSEventObject {
+export interface ReceiveegcEventObject {
   from: string;
   _amount: BigNumber;
 }
-export type ReceiveKCSEvent = TypedEvent<
+export type ReceiveegcEvent = TypedEvent<
   [string, BigNumber],
-  ReceiveKCSEventObject
+  ReceiveegcEventObject
 >;
 
-export type ReceiveKCSEventFilter = TypedEventFilter<ReceiveKCSEvent>;
+export type ReceiveegcEventFilter = TypedEventFilter<ReceiveegcEvent>;
 
 export interface RedeemMarginEventObject {
   from: string;
@@ -2017,11 +2017,11 @@ export interface Validators extends BaseContract {
       _amount?: null
     ): PunishValidatorEventFilter;
 
-    "ReceiveKCS(address,uint256)"(
+    "Receiveegc(address,uint256)"(
       from?: null,
       _amount?: null
-    ): ReceiveKCSEventFilter;
-    ReceiveKCS(from?: null, _amount?: null): ReceiveKCSEventFilter;
+    ): ReceiveegcEventFilter;
+    Receiveegc(from?: null, _amount?: null): ReceiveegcEventFilter;
 
     "RedeemMargin(address,address,uint256)"(
       from?: PromiseOrValue<string> | null,

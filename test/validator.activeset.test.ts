@@ -28,7 +28,7 @@ describe("validators: activeset management", function () {
     const REDEEM_LOCK_DURATION = 3 * 24 * 60 * 60; // 3 days
     const FEE_SET_LOCKING_DURATION = 1 * 24 * 60 * 60; // 1 day
     const INITIAL_FEE_SHARE = 2000; // initial commission fee rate for validator
-    const MIN_SELF_BALLOTS_IN_KCS = ethers.constants.WeiPerEther.mul(10000); // minimum m
+    const MIN_SELF_BALLOTS_IN_egc = ethers.constants.WeiPerEther.mul(10000); // minimum m
 
 
     beforeEach(async () => {
@@ -43,8 +43,8 @@ describe("validators: activeset management", function () {
 
         candiates = others.slice(7);
 
-        // initial KCS in contract
-        await setBalance(validatorContract.address, MIN_SELF_BALLOTS_IN_KCS.mul(initialValidators.length));
+        // initial egc in contract
+        await setBalance(validatorContract.address, MIN_SELF_BALLOTS_IN_egc.mul(initialValidators.length));
 
         // initialize for the first time
         await validatorContract.initialize(

@@ -796,7 +796,7 @@ contract Validators is
         address indexed validator,
         uint256 pendingReward
     );
-    event ReceiveKCS(address from, uint256 _amount);
+    event Receiveegc(address from, uint256 _amount);
     // Total Ballots
     uint256 public totalBallot;
 
@@ -866,12 +866,12 @@ contract Validators is
         marginLockingDuration = 15 days;
         feeSetLockingDuration = 1 days;
         maxPunishmentAmount = 100 ether;
-        minSelfBallots = 10000;
+        minSelfBallots = 10;
 
         require(
             address(this).balance >=
                 minSelfBallots.mul(_validators.length).mul(VOTE_UNIT),
-            "no enough kcs in validators contract"
+            "no enough egc in validators contract"
         );
 
         _Admin_Init(_admin);
@@ -1321,7 +1321,7 @@ contract Validators is
         emit PunishValidator(validator, block.number, amount);
     }
 
-    // Deposit ballot - KCS to the target validator for Reward allocation.
+    // Deposit ballot - egc to the target validator for Reward allocation.
     function vote(address _val) public payable nonReentrant {
         PoolInfo storage pool = poolInfos[_val];
         require(
@@ -1339,7 +1339,7 @@ contract Validators is
         //
         require(
             msg.value > 0 && ballotAmount > 0,
-            "Validators: votes must be integer multiple of 1 KCS."
+            "Validators: votes must be integer multiple of 1 egc."
         );
 
         uint256 ballotValue = ballotAmount.mul(VOTE_UNIT);
@@ -1595,7 +1595,7 @@ contract Validators is
     }
 
     receive() external payable {
-        emit ReceiveKCS(msg.sender, msg.value);
+        emit Receiveegc(msg.sender, msg.value);
     }
 
     function isActiveValidator(address val)
@@ -1624,7 +1624,7 @@ contract Validators is
     function depositMargin(address _val) external payable nonReentrant {
         require(
             msg.value > 0 && msg.value.mod(VOTE_UNIT) == 0,
-            "Validators: votes must be integer multiple of 1 KCS."
+            "Validators: votes must be integer multiple of 1 egc."
         );
         uint256 ballots = msg.value.div(VOTE_UNIT);
 

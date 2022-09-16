@@ -31,8 +31,8 @@ describe("valdiators: deposit & redeem margin, claim fees", function (){
 
     // constants
     const INITIAL_FEE_SHARE = 2000; // initial commission fee rate for validator
-    const MIN_SELF_BALLOTS_IN_KCS = ethers.constants.WeiPerEther.mul(10000); // minimum Self Ballots denominated in KCS
-    const MIN_SELF_BALLOTS = BigNumber.from(10000); // minimum Self Ballots denominated in KCS
+    const MIN_SELF_BALLOTS_IN_egc = ethers.constants.WeiPerEther.mul(10000); // minimum Self Ballots denominated in egc
+    const MIN_SELF_BALLOTS = BigNumber.from(10000); // minimum Self Ballots denominated in egc
     const MARGIN_LOCKING_DURATION = BigNumber.from(15 * 24 * 60 * 60); // 15 days
     const epoch = 1; 
 
@@ -50,10 +50,10 @@ describe("valdiators: deposit & redeem margin, claim fees", function (){
 
         candidates = others.slice(7);
 
-        // initial KCS in contract
-        await setBalance(validatorContract.address, MIN_SELF_BALLOTS_IN_KCS.mul(initialValidators.length));
-        // initial KCS in reservePool 
-        await setBalance(reservePoolMock.address,MIN_SELF_BALLOTS_IN_KCS);
+        // initial egc in contract
+        await setBalance(validatorContract.address, MIN_SELF_BALLOTS_IN_egc.mul(initialValidators.length));
+        // initial egc in reservePool 
+        await setBalance(reservePoolMock.address,MIN_SELF_BALLOTS_IN_egc);
 
         // some candidate
         [candidateA] = candidates;
@@ -96,7 +96,7 @@ describe("valdiators: deposit & redeem margin, claim fees", function (){
         await validatorContract.connect(manager).depositMargin(
             candidateA.address,
             {
-                value: ethers.constants.WeiPerEther.mul(ballots) // 10000 KCS
+                value: ethers.constants.WeiPerEther.mul(ballots) // 10000 egc
             });
 
         expect(await validatorContract.getPoolSelfBallots(candidateA.address)).to.equal(ballots);
@@ -105,7 +105,7 @@ describe("valdiators: deposit & redeem margin, claim fees", function (){
             .to.contains(candidateA.address);
     });
 
-    it("can only deposit integer multiples of 1 KCS", async function () {
+    it("can only deposit integer multiples of 1 egc", async function () {
         let origin = await ethers.provider.getBalance(manager.address);
         // Add a pool for candidateA
         validatorContract = validatorContract.connect(candidateA);
@@ -121,7 +121,7 @@ describe("valdiators: deposit & redeem margin, claim fees", function (){
         await expect(validatorContract.connect(manager).depositMargin(
             candidateA.address,
             {
-                value: BigNumber.from(100005).mul(ethers.constants.WeiPerEther).div(10) // 10000.5 KCS
+                value: BigNumber.from(100005).mul(ethers.constants.WeiPerEther).div(10) // 10000.5 egc
             })).
             to.be.reverted;
     });
@@ -147,7 +147,7 @@ describe("valdiators: deposit & redeem margin, claim fees", function (){
         await validatorContract.connect(manager).depositMargin(
             candidateA.address,
             {
-                value: MIN_SELF_BALLOTS_IN_KCS.div(2) // half 
+                value: MIN_SELF_BALLOTS_IN_egc.div(2) // half 
             });
 
 
@@ -168,7 +168,7 @@ describe("valdiators: deposit & redeem margin, claim fees", function (){
         await validatorContract.connect(manager).depositMargin(
             candidateA.address,
             {
-                value: MIN_SELF_BALLOTS_IN_KCS.div(2) // another half
+                value: MIN_SELF_BALLOTS_IN_egc.div(2) // another half
             });
         
         expect(await validatorContract.getPoolSelfBallots(candidateA.address)).to.equal(MIN_SELF_BALLOTS);
@@ -187,7 +187,7 @@ describe("valdiators: deposit & redeem margin, claim fees", function (){
 
         const [someValidator] = initialValidators;
         
-        // blockReward: 7 KCS per block 
+        // blockReward: 7 egc per block 
         const blockReward = ethers.constants.WeiPerEther.mul(7);
         await reservePoolMock.setBlockReward(blockReward); 
 
@@ -248,7 +248,7 @@ describe("valdiators: deposit & redeem margin, claim fees", function (){
             "candidateA",
             "candidateA's website",
             "candidateA's email",{
-                value: MIN_SELF_BALLOTS_IN_KCS,
+                value: MIN_SELF_BALLOTS_IN_egc,
             });
 
         // update new added validtor to active validators 
@@ -282,7 +282,7 @@ describe("valdiators: deposit & redeem margin, claim fees", function (){
 
         // validator cannot deposit margin 
         await expect(validatorContract.connect(candidateA).depositMargin(candidateA.address,{
-            value: MIN_SELF_BALLOTS_IN_KCS,
+            value: MIN_SELF_BALLOTS_IN_egc,
         }),"only manager can deposit margin")
         .to.be.reverted;
 
@@ -297,7 +297,7 @@ describe("valdiators: deposit & redeem margin, claim fees", function (){
         await validatorContract.connect(manager).claimFeeReward(candidateA.address);
         await validatorContract.connect(manager).claimSelfBallotsReward(candidateA.address);
         await validatorContract.connect(manager).depositMargin(candidateA.address,{
-            value: MIN_SELF_BALLOTS_IN_KCS,
+            value: MIN_SELF_BALLOTS_IN_egc,
         })
         await validatorContract.connect(manager).redeemMargin(candidateA.address,MIN_SELF_BALLOTS);
 
@@ -307,7 +307,7 @@ describe("valdiators: deposit & redeem margin, claim fees", function (){
     it("redeem & withdraw margin",async function(){
 
         // 7 initial active validator
-        // each with margin of MIN_SELF_BALLOTS_IN_KCS 
+        // each with margin of MIN_SELF_BALLOTS_IN_egc 
 
         const [someValidator] = initialValidators;
 
@@ -373,7 +373,7 @@ describe("valdiators: deposit & redeem margin, claim fees", function (){
         balanceAfter = await someValidator.getBalance();
         expect(balanceAfter.sub(balanceBefore),
             "no margin can be withdrawn at present after only 15 days")
-            .to.be.equal(MIN_SELF_BALLOTS_IN_KCS.div(2));
+            .to.be.equal(MIN_SELF_BALLOTS_IN_egc.div(2));
 
 
     });
@@ -415,9 +415,9 @@ describe("valdiators: deposit & redeem margin, claim fees", function (){
         
         const firstVal = preLastVal;
 
-        // voteA revokes 20 KCS  
+        // voteA revokes 20 egc  
         await validatorContract.connect(voterA).revokeVote(firstVal,20);
-        // voterB revokes 10 KCS
+        // voterB revokes 10 egc
         await validatorContract.connect(voterB).revokeVote(firstVal,10);
 
         topValidators = await validatorContract.getTopValidators();

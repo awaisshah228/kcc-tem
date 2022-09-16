@@ -18,9 +18,9 @@ describe("ReservePool", function () {
   let deployer: SignerWithAddress; // the deployer signer of the reservePool contract 
   let admin: SignerWithAddress; // the admin of reservePool  
   
-  const _6_KCS = ethers.constants.WeiPerEther.mul(6);
-  const _5_KCS = ethers.constants.WeiPerEther.mul(5);
-  const _1_KCS = ethers.constants.WeiPerEther.mul(1);
+  const _6_egc = ethers.constants.WeiPerEther.mul(6);
+  const _5_egc = ethers.constants.WeiPerEther.mul(5);
+  const _1_egc = ethers.constants.WeiPerEther.mul(1);
   const _BIG_ONE = ethers.constants.One;
   const _BIG_ZERO = ethers.constants.Zero;
 
@@ -82,62 +82,62 @@ describe("ReservePool", function () {
       .to.be.reverted;
 
 
-    // set block reward as 5 kcs 
-    await reservePool.setBlockRewardAmount(_5_KCS);
+    // set block reward as 5 egc 
+    await reservePool.setBlockRewardAmount(_5_egc);
 
 
-    // round 1: no kcs in reservePool 
+    // round 1: no egc in reservePool 
 
     expect(await ethers.provider.getBalance(reservePool.address),
-        "no kcs in reservePool")
+        "no egc in reservePool")
         .to.be.equal(_BIG_ZERO);
     expect(await ethers.provider.getBalance(validatorMock.address),
-        "no kcs in validatorsContract")
+        "no egc in validatorsContract")
         .to.be.equal(_BIG_ZERO);
 
     await expect(validatorMock.withdrawBlockReward())
       .not.to.be.reverted;
 
-    // round 2: 6 kcs in reservePool 
+    // round 2: 6 egc in reservePool 
     //          5 will be withdrawn 
     await admin.sendTransaction({
       to: reservePool.address,
-      value: _6_KCS,
+      value: _6_egc,
     });
     expect(await ethers.provider.getBalance(reservePool.address),
-        "6 kcs in reservePool")
-        .to.be.equal(_6_KCS);  
+        "6 egc in reservePool")
+        .to.be.equal(_6_egc);  
      
     await validatorMock.withdrawBlockReward()
     expect(await validatorMock.lastWithdrawAmount())
-        .to.be.equal(_5_KCS);
+        .to.be.equal(_5_egc);
         
     expect(await ethers.provider.getBalance(reservePool.address),
-        "1 kcs in reservePool")
-        .to.be.equal(_1_KCS);  
+        "1 egc in reservePool")
+        .to.be.equal(_1_egc);  
     
     expect(await ethers.provider.getBalance(validatorMock.address),
-        "5 kcs in validatorsContract")
-        .to.be.equal(_5_KCS);      
+        "5 egc in validatorsContract")
+        .to.be.equal(_5_egc);      
         
-    // round 3: 1 kcs in reserve pool 
+    // round 3: 1 egc in reserve pool 
     //          the only 1 will be withdrawn 
     expect(await ethers.provider.getBalance(reservePool.address),
-        "1 kcs in reservePool")
-        .to.be.equal(_1_KCS);  
+        "1 egc in reservePool")
+        .to.be.equal(_1_egc);  
      
     await validatorMock.withdrawBlockReward()
     expect(await validatorMock.lastWithdrawAmount(),
-        "only the left 1 kcs can be withdrawn")
-        .to.be.equal(_1_KCS);
+        "only the left 1 egc can be withdrawn")
+        .to.be.equal(_1_egc);
         
     expect(await ethers.provider.getBalance(reservePool.address),
-        "0 kcs in reservePool")
+        "0 egc in reservePool")
         .to.be.equal(_BIG_ZERO);  
     
     expect(await ethers.provider.getBalance(validatorMock.address),
-        "6 kcs in validatorsContract")
-        .to.be.equal(_6_KCS);      
+        "6 egc in validatorsContract")
+        .to.be.equal(_6_egc);      
          
   
   });
@@ -164,21 +164,21 @@ describe("ReservePool", function () {
 
     await admin.sendTransaction({
       to: reservePool.address,
-      value: _6_KCS,
+      value: _6_egc,
     });
     expect(await ethers.provider.getBalance(reservePool.address),
-        "6 kcs in reservePool")
-        .to.be.equal(_6_KCS);    
-    await reservePool.setBlockRewardAmount(_5_KCS);
+        "6 egc in reservePool")
+        .to.be.equal(_6_egc);    
+    await reservePool.setBlockRewardAmount(_5_egc);
     expect(await reservePool.blockRewardAmount(),
-        "blockRewardAmount is now 5 kcs")
-        .to.equal(_5_KCS);  
+        "blockRewardAmount is now 5 egc")
+        .to.equal(_5_egc);  
 
     // try withdraw 
 
     await validatorMock.withdrawBlockReward();
     expect(await validatorMock.lastWithdrawAmount(),
-      "0 kcs withdrawn")
+      "0 egc withdrawn")
       .to.be.equal(_BIG_ZERO);
        
   });
@@ -198,7 +198,7 @@ describe("ReservePool", function () {
         "blockReward can not be changed by other than admin")
         .not.to.be.reverted;
     expect(await reservePool.blockRewardAmount(),
-        "blockRewardAmount is 1 kcs ").to.equal(_BIG_ONE);
+        "blockRewardAmount is 1 egc ").to.equal(_BIG_ONE);
 
 
     // is the new blockRewardAmount effective? 
@@ -206,25 +206,25 @@ describe("ReservePool", function () {
     // setups 
     await admin.sendTransaction({
       to: reservePool.address,
-      value: _6_KCS,
+      value: _6_egc,
     });
     expect(await ethers.provider.getBalance(reservePool.address),
-        "6 kcs in reservePool")
-        .to.be.equal(_6_KCS);    
+        "6 egc in reservePool")
+        .to.be.equal(_6_egc);    
 
-    // round 1: blockRewardAmount = 1 kcs 
+    // round 1: blockRewardAmount = 1 egc 
     await validatorMock.withdrawBlockReward();
     expect(await validatorMock.lastWithdrawAmount(),
-      "1 kcs withdrawn")
+      "1 egc withdrawn")
       .to.be.equal(_BIG_ONE);
 
 
-    // round 2: blockRewardAmount = 2 kcs 
+    // round 2: blockRewardAmount = 2 egc 
     await expect(reservePool.setBlockRewardAmount(_BIG_ONE.mul(2)),
         "blockReward can not be changed by other than admin")
         .not.to.be.reverted;
     expect(await reservePool.blockRewardAmount(),
-        "blockRewardAmount is 2 kcs ").to.equal(_BIG_ONE.mul(2));   
+        "blockRewardAmount is 2 egc ").to.equal(_BIG_ONE.mul(2));   
        
   });
  

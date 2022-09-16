@@ -18,7 +18,7 @@ interface IValidators {
         uint256 lastRewardBlock;   // Last block number that the validator is rewarded
         uint256 feeSettLockingEndTime;  // feeShares can not be changed before feeSettLockingEndTime 
         uint256 suppliedBallots; // Total ballots voted to this validator 
-        uint256 accRewardPerShare; // Accumulated KCSs per share, times 1e12.
+        uint256 accRewardPerShare; // Accumulated egcs per share, times 1e12.
         uint256 voterNumber; // The number of votes of the validator 
         uint256 electedNumber; // The number of times the validator is rewarded.
         bool enabled;    

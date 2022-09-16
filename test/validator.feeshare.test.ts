@@ -20,8 +20,8 @@ describe("manager set fee shares of validator's pool", function () {
         let manager: SignerWithAddress; // The manager of all the validators 
         let miner: SignerWithAddress;
         let initialValidators: SignerWithAddress[];
-        const MIN_SELF_BALLOTS_IN_KCS = ethers.constants.WeiPerEther.mul(10000); // minimum Self Ballots denominated in KCS 
-        const MIN_SELF_BALLOTS = MIN_SELF_BALLOTS_IN_KCS.div(ethers.constants.WeiPerEther);
+        const MIN_SELF_BALLOTS_IN_egc = ethers.constants.WeiPerEther.mul(10000); // minimum Self Ballots denominated in egc 
+        const MIN_SELF_BALLOTS = MIN_SELF_BALLOTS_IN_egc.div(ethers.constants.WeiPerEther);
 
         beforeEach(async () => {
 
@@ -33,8 +33,8 @@ describe("manager set fee shares of validator's pool", function () {
 
             initialValidators = others.slice(0, 7); // the first 7 candidate as the init validators
 
-            // initial KCS in contract 
-            await setBalance(validatorContract.address,MIN_SELF_BALLOTS_IN_KCS.mul(initialValidators.length));
+            // initial egc in contract 
+            await setBalance(validatorContract.address,MIN_SELF_BALLOTS_IN_egc.mul(initialValidators.length));
         
 
             // initialize for the first time

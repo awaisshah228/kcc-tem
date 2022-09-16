@@ -1,0 +1,459 @@
+{
+  "address": "0xfD0Ad852D7CB2a479138Cf82543546f1f886066e",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "actor",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Deposit",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "actor",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Withdraw",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "EPOCH",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "MAX_BLOCK_REWARD_AMOUNT",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "MAX_VALIDATORS",
+      "outputs": [
+        {
+          "internalType": "uint16",
+          "name": "",
+          "type": "uint16"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "PROPOSAL_CONTRACT",
+      "outputs": [
+        {
+          "internalType": "contract IProposal",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "PUBLISH_CONTRACT",
+      "outputs": [
+        {
+          "internalType": "contract IPunish",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "RESERVEPOOL_CONTRACT",
+      "outputs": [
+        {
+          "internalType": "contract IReservePool",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "VALIDATOR_CONTRACT",
+      "outputs": [
+        {
+          "internalType": "contract IValidators",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "admin",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "blockRewardAmount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_admin",
+          "type": "address"
+        }
+      ],
+      "name": "changeAdmin",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_admin",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_validatorsContract",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_punishContract",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_proposalContract",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_reservePool",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_epoch",
+          "type": "uint256"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "setBlockRewardAmount",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "enum ReservePool.State",
+          "name": "newState",
+          "type": "uint8"
+        }
+      ],
+      "name": "setState",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "state",
+      "outputs": [
+        {
+          "internalType": "enum ReservePool.State",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "withdrawBlockReward",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "receive"
+    }
+  ],
+  "transactionHash": "0x6dbe3536c8ccba700c7d31f5d82634a08514691f56581582f619bcadb47fb50c",
+  "receipt": {
+    "to": null,
+    "from": "0x9564eF29C289abDf62b196B59aa43d21563035D1",
+    "contractAddress": "0xfD0Ad852D7CB2a479138Cf82543546f1f886066e",
+    "transactionIndex": 0,
+    "gasUsed": "644909",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x09474eac736c46c99e1c11ac8554544b724aecd037c4264c7858cbb9222d15bb",
+    "transactionHash": "0x6dbe3536c8ccba700c7d31f5d82634a08514691f56581582f619bcadb47fb50c",
+    "logs": [],
+    "blockNumber": 2407081,
+    "cumulativeGasUsed": "644909",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "50c1703e60a2395591b3b334630b2a76",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"actor\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Deposit\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"actor\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Withdraw\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"EPOCH\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MAX_BLOCK_REWARD_AMOUNT\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MAX_VALIDATORS\",\"outputs\":[{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PROPOSAL_CONTRACT\",\"outputs\":[{\"internalType\":\"contract IProposal\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PUBLISH_CONTRACT\",\"outputs\":[{\"internalType\":\"contract IPunish\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"RESERVEPOOL_CONTRACT\",\"outputs\":[{\"internalType\":\"contract IReservePool\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"VALIDATOR_CONTRACT\",\"outputs\":[{\"internalType\":\"contract IValidators\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"admin\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"blockRewardAmount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_admin\",\"type\":\"address\"}],\"name\":\"changeAdmin\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_admin\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_validatorsContract\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_punishContract\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_proposalContract\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_reservePool\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_epoch\",\"type\":\"uint256\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"setBlockRewardAmount\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"enum ReservePool.State\",\"name\":\"newState\",\"type\":\"uint8\"}],\"name\":\"setState\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"state\",\"outputs\":[{\"internalType\":\"enum ReservePool.State\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"withdrawBlockReward\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/ReservePool.sol\":\"ReservePool\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":1},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts-ethereum-package/contracts/Initializable.sol\":{\"content\":\"pragma solidity >=0.4.24 <0.7.0;\\n\\n\\n/**\\n * @title Initializable\\n *\\n * @dev Helper contract to support initializer functions. To use it, replace\\n * the constructor with a function that has the `initializer` modifier.\\n * WARNING: Unlike constructors, initializer functions must be manually\\n * invoked. This applies both to deploying an Initializable contract, as well\\n * as extending an Initializable contract via inheritance.\\n * WARNING: When used with inheritance, manual care must be taken to not invoke\\n * a parent initializer twice, or ensure that all initializers are idempotent,\\n * because this is not dealt with automatically as with constructors.\\n */\\ncontract Initializable {\\n\\n  /**\\n   * @dev Indicates that the contract has been initialized.\\n   */\\n  bool private initialized;\\n\\n  /**\\n   * @dev Indicates that the contract is in the process of being initialized.\\n   */\\n  bool private initializing;\\n\\n  /**\\n   * @dev Modifier to use in the initializer function of a contract.\\n   */\\n  modifier initializer() {\\n    require(initializing || isConstructor() || !initialized, \\\"Contract instance has already been initialized\\\");\\n\\n    bool isTopLevelCall = !initializing;\\n    if (isTopLevelCall) {\\n      initializing = true;\\n      initialized = true;\\n    }\\n\\n    _;\\n\\n    if (isTopLevelCall) {\\n      initializing = false;\\n    }\\n  }\\n\\n  /// @dev Returns true if and only if the function is running in the constructor\\n  function isConstructor() private view returns (bool) {\\n    // extcodesize checks the size of the code stored in an address, and\\n    // address returns the current address. Since the code is still not\\n    // deployed when running a constructor, any checks on its code size will\\n    // yield zero, making it an effective way to detect if a contract is\\n    // under construction or not.\\n    address self = address(this);\\n    uint256 cs;\\n    assembly { cs := extcodesize(self) }\\n    return cs == 0;\\n  }\\n\\n  // Reserved storage space to allow for layout changes in the future.\\n  uint256[50] private ______gap;\\n}\\n\",\"keccak256\":\"0x9bfec92e36234ecc99b5d37230acb6cd1f99560233753162204104a4897e8721\"},\"contracts/Admin.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity >=0.6.0 <0.8.0;\\r\\n\\r\\nimport \\\"@openzeppelin/contracts-ethereum-package/contracts/Initializable.sol\\\";\\r\\n\\r\\ncontract Admin is Initializable {\\r\\n    address public admin;\\r\\n\\r\\n    // solhint-disable func-name-mixedcase\\r\\n    function _Admin_Init(address _admin) internal initializer {\\r\\n        admin = _admin;\\r\\n    }\\r\\n\\r\\n    function _onlyAdmin() private view {\\r\\n        require(msg.sender == admin, \\\"must be admin\\\");\\r\\n    }\\r\\n\\r\\n    modifier onlyAdmin() {\\r\\n        _onlyAdmin();\\r\\n        _;\\r\\n    }\\r\\n\\r\\n    function changeAdmin(address _admin) public onlyAdmin {\\r\\n        admin = _admin;\\r\\n    }\\r\\n}\\r\\n\",\"keccak256\":\"0x7bad7fa804122c3a58d53db49371851ce060a42a88b8e0134ffbe8dc9c3832e7\",\"license\":\"MIT\"},\"contracts/Params.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity >=0.6.0 <0.8.0;\\r\\n\\r\\nimport \\\"./interfaces/IValidators.sol\\\";\\r\\nimport \\\"./interfaces/IPunish.sol\\\";\\r\\nimport \\\"./interfaces/IProposal.sol\\\";\\r\\nimport \\\"./interfaces/IReservePool.sol\\\";\\r\\nimport \\\"@openzeppelin/contracts-ethereum-package/contracts/Initializable.sol\\\";\\r\\n \\r\\ncontract Params is Initializable {\\r\\n\\r\\n    // System contracts addresses \\r\\n    IValidators public  VALIDATOR_CONTRACT; // solhint-disable var-name-mixedcase\\r\\n    IPunish public  PUBLISH_CONTRACT;       // solhint-disable var-name-mixedcase\\r\\n    IProposal public  PROPOSAL_CONTRACT;    // solhint-disable var-name-mixedcase\\r\\n    IReservePool public RESERVEPOOL_CONTRACT; // solhint-disable var-name-mixedcase\\r\\n    uint256 public EPOCH; // solhint-disable var-name-mixedcase\\r\\n\\r\\n    // System params\\r\\n    uint16 public constant MAX_VALIDATORS = 29;\\r\\n\\r\\n    function _onlyMiner() private view {\\r\\n        require(msg.sender == block.coinbase, \\\"Miner only\\\");\\r\\n    }\\r\\n    \\r\\n\\r\\n    modifier onlyMiner() {\\r\\n        _onlyMiner();\\r\\n        _;\\r\\n    }\\r\\n    function _onlyPunishContract() private view {\\r\\n        require(msg.sender == address(PUBLISH_CONTRACT), \\\"Punish contract only\\\");\\r\\n    }\\r\\n\\r\\n    modifier onlyPunishContract() {\\r\\n        _onlyPunishContract();\\r\\n        _;\\r\\n    }\\r\\n    \\r\\n\\r\\n    modifier onlyBlockEpoch {\\r\\n        require(block.number % EPOCH == 0, \\\"Block epoch only\\\");\\r\\n        _;\\r\\n    }\\r\\n\\r\\n    modifier onlyValidatorsContract() {\\r\\n        require(msg.sender == address(VALIDATOR_CONTRACT), \\\"Validators contract only\\\");\\r\\n        _;\\r\\n\\r\\n    }\\r\\n\\r\\n    function _setAddressesAndEpoch(\\r\\n            address _validatorsContract,\\r\\n            address _punishContract,\\r\\n            address _proposalContract,\\r\\n            address _reservePool,\\r\\n            uint256 epoch\\r\\n    ) internal initializer{\\r\\n        VALIDATOR_CONTRACT = IValidators(payable(_validatorsContract));\\r\\n        PUBLISH_CONTRACT = IPunish(payable(_punishContract));\\r\\n        PROPOSAL_CONTRACT = IProposal(payable(_proposalContract));\\r\\n        RESERVEPOOL_CONTRACT = IReservePool(payable(_reservePool));\\r\\n        EPOCH = epoch;\\r\\n    }\\r\\n\\r\\n}\\r\\n\",\"keccak256\":\"0xa887827926217dfded2a6c59bb78b10527bae1e957132c6171b211e7e54028e6\",\"license\":\"MIT\"},\"contracts/ReservePool.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\n\\r\\npragma solidity >=0.6.0 <0.8.0;\\r\\n\\r\\nimport \\\"./Params.sol\\\";\\r\\nimport \\\"./interfaces/IReservePool.sol\\\";\\r\\nimport \\\"./Admin.sol\\\";\\r\\n\\r\\ncontract ReservePool is Params, Admin, IReservePool {\\r\\n    enum State {\\r\\n        DISABLED,\\r\\n        ENABLED\\r\\n    }\\r\\n\\r\\n    // The Block Reward for each block\\r\\n    uint256 public blockRewardAmount;\\r\\n    // The maximum block reward amount\\r\\n    uint256 public constant MAX_BLOCK_REWARD_AMOUNT = 100 ether;\\r\\n    // Has block reward already withdrawn from this block?\\r\\n    mapping(uint256 => uint256) internal _rewardWithdrawnRecords;\\r\\n\\r\\n    // Events\\r\\n\\r\\n    // Withdraw from reservePool\\r\\n    event Withdraw(address indexed actor, uint256 amount);\\r\\n\\r\\n    // Deposit to reservePool\\r\\n    event Deposit(address indexed actor, uint256 amount);\\r\\n\\r\\n    constructor() public {\\r\\n        admin = msg.sender;\\r\\n    }\\r\\n\\r\\n    // The state of the reservePool:\\r\\n    //  - DISABLED: no egc can be withrawn from the reservePool\\r\\n    //  - ENABLED: egc can be withdrawn from the reservePool\\r\\n    State public state;\\r\\n\\r\\n    function initialize(\\r\\n        address _admin,\\r\\n        address _validatorsContract,\\r\\n        address _punishContract,\\r\\n        address _proposalContract,\\r\\n        address _reservePool,\\r\\n        uint256 _epoch\\r\\n    ) external initializer {\\r\\n        _Admin_Init(_admin);\\r\\n        _setAddressesAndEpoch(\\r\\n            _validatorsContract,\\r\\n            _punishContract,\\r\\n            _proposalContract,\\r\\n            _reservePool,\\r\\n            _epoch\\r\\n        );\\r\\n        state = State.ENABLED; // enabled after initialized\\r\\n    }\\r\\n\\r\\n    // Withdraw Block Reward from ReservePool\\r\\n    // This method can only be called once per block and can only be called by ValidatorsContract.\\r\\n    //\\r\\n    //  @returns:  the amount withdrawn from ReservePool and received by msg.sender\\r\\n    //\\r\\n    function withdrawBlockReward()\\r\\n        external\\r\\n        override\\r\\n        onlyValidatorsContract\\r\\n        returns (uint256)\\r\\n    {\\r\\n        require(\\r\\n            _rewardWithdrawnRecords[block.number] == 0,\\r\\n            \\\"multiple withdrawals in a single block\\\"\\r\\n        );\\r\\n\\r\\n        if (state != State.ENABLED) {\\r\\n            // reservePool not enabled\\r\\n            return 0;\\r\\n        }\\r\\n\\r\\n        uint256 amount;\\r\\n\\r\\n        if (address(this).balance > blockRewardAmount) {\\r\\n            amount = blockRewardAmount;\\r\\n        } else {\\r\\n            amount = address(this).balance;\\r\\n        }\\r\\n\\r\\n        _rewardWithdrawnRecords[block.number] = 1;\\r\\n\\r\\n        // solhint-disable avoid-low-level-calls\\r\\n        (bool success, ) = msg.sender.call{value: amount}(new bytes(0));\\r\\n        require(success, \\\"ReservePool: egc transfer failed\\\");\\r\\n\\r\\n        emit Withdraw(msg.sender, amount);\\r\\n\\r\\n        return amount;\\r\\n    }\\r\\n\\r\\n    // Set the state of reservePool:\\r\\n    //   @params newState\\r\\n    function setState(State newState) external onlyAdmin {\\r\\n        require(\\r\\n            newState == State.DISABLED || newState == State.ENABLED,\\r\\n            \\\"invalid state\\\"\\r\\n        );\\r\\n        state = newState;\\r\\n    }\\r\\n\\r\\n    // Set the new block reward amount\\r\\n    function setBlockRewardAmount(uint256 amount) external onlyAdmin {\\r\\n        require(\\r\\n            amount < MAX_BLOCK_REWARD_AMOUNT,\\r\\n            \\\"amount is greater than maximum\\\"\\r\\n        );\\r\\n        blockRewardAmount = amount;\\r\\n    }\\r\\n\\r\\n    receive() external payable {\\r\\n        emit Deposit(msg.sender, msg.value);\\r\\n    }\\r\\n}\\r\\n\",\"keccak256\":\"0xc80736ca4a16a4e97020e3ac04c246caaf1eea8724d82035d5600be968edc7d6\",\"license\":\"MIT\"},\"contracts/interfaces/IProposal.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\n\\r\\npragma solidity >=0.6.0 <0.8.0;\\r\\n\\r\\n\\r\\ninterface IProposal {\\r\\n\\r\\n    function isProposalPassed(address val, bytes32 id) external view returns(bool);\\r\\n\\r\\n}\",\"keccak256\":\"0x3a14cd101741d401651690f9f4505a9238830b78e3c3ec0a47be4e8b5015828b\",\"license\":\"MIT\"},\"contracts/interfaces/IPunish.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\n\\r\\npragma solidity >=0.6.0 <0.8.0;\\r\\n\\r\\ninterface IPunish {\\r\\n    function punish(address _val) external;\\r\\n}\\r\\n\",\"keccak256\":\"0x81e7412124aba81995f5f08f3e15cdde76a228d8759ef0ca01ddd2116d01dad6\",\"license\":\"MIT\"},\"contracts/interfaces/IReservePool.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\n\\r\\npragma solidity >=0.6.0 <0.8.0;\\r\\n\\r\\ninterface IReservePool {\\r\\n    function withdrawBlockReward() external returns (uint256);\\r\\n}\\r\\n\",\"keccak256\":\"0x1552fe59b3b51be20d67f2b64ac0023e94d323e82f8defccbcb00e3ba66a8cff\",\"license\":\"MIT\"},\"contracts/interfaces/IValidators.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\n\\r\\npragma solidity >=0.6.0 <0.8.0;\\r\\n\\r\\n\\r\\ninterface IValidators {\\r\\n\\r\\n\\r\\n    // Info of each pool.\\r\\n    struct PoolInfo {\\r\\n        address validator;   // Address of validator.\\r\\n        address manager; \\r\\n        uint256 selfBallots;      // The validator's Margin in ballots\\r\\n        uint256 selfBallotsRewardsDebt;  // The validator's reward debt corresponding to selfBallots \\r\\n        uint256 feeShares;   // The commission rate in 1/10000 \\r\\n        uint256 pendingFee;  // The pending commission fee of the validator \\r\\n        uint256 feeDebt;     // The validators's commission fee debt, i.e, commission fees already withdrawn \\r\\n        uint256 lastRewardBlock;   // Last block number that the validator is rewarded\\r\\n        uint256 feeSettLockingEndTime;  // feeShares can not be changed before feeSettLockingEndTime \\r\\n        uint256 suppliedBallots; // Total ballots voted to this validator \\r\\n        uint256 accRewardPerShare; // Accumulated egcs per share, times 1e12.\\r\\n        uint256 voterNumber; // The number of votes of the validator \\r\\n        uint256 electedNumber; // The number of times the validator is rewarded.\\r\\n        bool enabled;    \\r\\n    }\\r\\n\\r\\n    // The detailed information of a validator \\r\\n    struct Description {\\r\\n        string website;\\r\\n        string email;\\r\\n        string details;\\r\\n    }\\r\\n\\r\\n    // Info of each user.\\r\\n    struct UserInfo {\\r\\n        uint256 amount; // How many ballot tokens the user has provided.\\r\\n        uint256 rewardDebt; // Reward debt.\\r\\n    }\\r\\n\\r\\n\\r\\n    // Info of each pool.\\r\\n    struct VotingData {\\r\\n        address validator;          //  The address of the validator \\r\\n        uint256 validatorBallot;    //  The total ballots of the validator \\r\\n        uint256 feeShares;          //  The commission rate of the validator in 1/10000\\r\\n        uint256 ballot;             //  The user's ballots in this validator \\r\\n        uint256 pendingReward;          // The user's pending reward \\r\\n        uint256 revokingBallot;         // The user's revoking ballots \\r\\n        uint256 revokeLockingEndTime;   // The user can withdraw KSCs corresponding to revokingBallot after revokeLockingEndTime\\r\\n    }\\r\\n\\r\\n    // The Revoking info of a user's ballots\\r\\n    struct RevokingInfo {\\r\\n        uint256 amount; // The amount of ballots that user is revoking \\r\\n        uint256 lockingEndTime; // The user can withdraw his/her revoking ballots after lockingEndTime\\r\\n    }\\r\\n\\r\\n    enum Operation {Distributed, UpdatedValidators}\\r\\n\\r\\n    function punish(address validator, bool remove) external; \\r\\n\\r\\n\\r\\n  \\r\\n    // @dev This can only be called by the miner from the KCC node. \\r\\n    function distributeBlockReward() external payable;\\r\\n    \\r\\n    function updateActiveValidatorSet(address[] calldata newSet)  external;\\r\\n\\r\\n    function getTopValidators()  external view returns (address[] memory); \\r\\n\\r\\n    function isActiveValidator(address val) external view returns (bool);\\r\\n\\r\\n    function getActiveValidators() external view returns (address[] memory);\\r\\n\\r\\n    function getPoolenabled(address val) external view returns (bool);\\r\\n\\r\\n}\\r\\n\\r\\n\",\"keccak256\":\"0x17984ffd555b5cf4af44e5ec6f40b2bde6cc5e5af0c7f36f63ee73b3c7de584f\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50603880546001600160a01b03191633179055610a52806100326000396000f3fe6080604052600436106100bc5760003560e01c806326cc2256146100fe5780632ed19cd51461012557806346f751381461015157806356de96db1461018257806360c80cbf146101af578063714897df146101c4578063828090d0146101f0578063863a20b7146102055780638f2839701461021a57806395b6ef0c1461024d578063a0dc2758146102a6578063c19d93fb146102bb578063cf813c1d146102f1578063e5a99f4f14610306578063f851a4401461031b576100f9565b366100f95760408051348152905133917fe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c919081900360200190a2005b600080fd5b34801561010a57600080fd5b50610113610330565b60408051918252519081900360200190f35b34801561013157600080fd5b5061014f6004803603602081101561014857600080fd5b5035610336565b005b34801561015d57600080fd5b506101666103a0565b604080516001600160a01b039092168252519081900360200190f35b34801561018e57600080fd5b5061014f600480360360208110156101a557600080fd5b503560ff166103af565b3480156101bb57600080fd5b5061016661043d565b3480156101d057600080fd5b506101d961044c565b6040805161ffff9092168252519081900360200190f35b3480156101fc57600080fd5b50610113610451565b34801561021157600080fd5b5061016661045e565b34801561022657600080fd5b5061014f6004803603602081101561023d57600080fd5b50356001600160a01b031661046d565b34801561025957600080fd5b5061014f600480360360c081101561027057600080fd5b506001600160a01b0381358116916020810135821691604082013581169160608101358216916080820135169060a00135610497565b3480156102b257600080fd5b50610113610562565b3480156102c757600080fd5b506102d0610568565b604051808260018111156102e057fe5b815260200191505060405180910390f35b3480156102fd57600080fd5b50610113610571565b34801561031257600080fd5b5061016661079f565b34801561032757600080fd5b506101666107ae565b60395481565b61033e6107bd565b68056bc75e2d63100000811061039b576040805162461bcd60e51b815260206004820152601e60248201527f616d6f756e742069732067726561746572207468616e206d6178696d756d0000604482015290519081900360640190fd5b603955565b6033546001600160a01b031681565b6103b76107bd565b60008160018111156103c557fe5b14806103dc575060018160018111156103da57fe5b145b61041d576040805162461bcd60e51b815260206004820152600d60248201526c696e76616c696420737461746560981b604482015290519081900360640190fd5b603b805482919060ff19166001838181111561043557fe5b021790555050565b6036546001600160a01b031681565b601d81565b68056bc75e2d6310000081565b6035546001600160a01b031681565b6104756107bd565b603880546001600160a01b0319166001600160a01b0392909216919091179055565b600054610100900460ff16806104b057506104b061080e565b806104be575060005460ff16155b6104f95760405162461bcd60e51b815260040180806020018281038252602e8152602001806109ef602e913960400191505060405180910390fd5b600054610100900460ff16158015610524576000805460ff1961ff0019909116610100171660011790555b61052d87610814565b61053a86868686866108d2565b603b805460ff191660011790558015610559576000805461ff00191690555b50505050505050565b60375481565b603b5460ff1681565b6033546000906001600160a01b031633146105ce576040805162461bcd60e51b815260206004820152601860248201527756616c696461746f727320636f6e7472616374206f6e6c7960401b604482015290519081900360640190fd5b436000908152603a60205260409020541561061a5760405162461bcd60e51b81526004018080602001828103825260268152602001806109c96026913960400191505060405180910390fd5b6001603b5460ff16600181111561062d57fe5b1461063a5750600061079c565b600060395447111561064f5750603954610652565b50475b436000908152603a602090815260408083206001905580518381529182019052339083906040518082805190602001908083835b602083106106a55780518252601f199092019160209182019101610686565b6001836020036101000a03801982511681845116808217855250505050505090500191505060006040518083038185875af1925050503d8060008114610707576040519150601f19603f3d011682016040523d82523d6000602084013e61070c565b606091505b5050905080610762576040805162461bcd60e51b815260206004820181905260248201527f52657365727665506f6f6c3a20656763207472616e73666572206661696c6564604482015290519081900360640190fd5b60408051838152905133917f884edad9ce6fa2440d8a54cc123490eb96d2768479d49ff9c7366125a9424364919081900360200190a25090505b90565b6034546001600160a01b031681565b6038546001600160a01b031681565b6038546001600160a01b0316331461080c576040805162461bcd60e51b815260206004820152600d60248201526c36bab9ba1031329030b236b4b760991b604482015290519081900360640190fd5b565b303b1590565b600054610100900460ff168061082d575061082d61080e565b8061083b575060005460ff16155b6108765760405162461bcd60e51b815260040180806020018281038252602e8152602001806109ef602e913960400191505060405180910390fd5b600054610100900460ff161580156108a1576000805460ff1961ff0019909116610100171660011790555b603880546001600160a01b0319166001600160a01b03841617905580156108ce576000805461ff00191690555b5050565b600054610100900460ff16806108eb57506108eb61080e565b806108f9575060005460ff16155b6109345760405162461bcd60e51b815260040180806020018281038252602e8152602001806109ef602e913960400191505060405180910390fd5b600054610100900460ff1615801561095f576000805460ff1961ff0019909116610100171660011790555b603380546001600160a01b038089166001600160a01b03199283161790925560348054888416908316179055603580548784169083161790556036805492861692909116919091179055603782905580156109c0576000805461ff00191690555b50505050505056fe6d756c7469706c65207769746864726177616c7320696e20612073696e676c6520626c6f636b436f6e747261637420696e7374616e63652068617320616c7265616479206265656e20696e697469616c697a6564a2646970667358221220c02da66d624cf0049a7195805d68ba5be765ebfe5f160411f0d1e96582a43c6e64736f6c634300060c0033",
+  "deployedBytecode": "0x6080604052600436106100bc5760003560e01c806326cc2256146100fe5780632ed19cd51461012557806346f751381461015157806356de96db1461018257806360c80cbf146101af578063714897df146101c4578063828090d0146101f0578063863a20b7146102055780638f2839701461021a57806395b6ef0c1461024d578063a0dc2758146102a6578063c19d93fb146102bb578063cf813c1d146102f1578063e5a99f4f14610306578063f851a4401461031b576100f9565b366100f95760408051348152905133917fe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c919081900360200190a2005b600080fd5b34801561010a57600080fd5b50610113610330565b60408051918252519081900360200190f35b34801561013157600080fd5b5061014f6004803603602081101561014857600080fd5b5035610336565b005b34801561015d57600080fd5b506101666103a0565b604080516001600160a01b039092168252519081900360200190f35b34801561018e57600080fd5b5061014f600480360360208110156101a557600080fd5b503560ff166103af565b3480156101bb57600080fd5b5061016661043d565b3480156101d057600080fd5b506101d961044c565b6040805161ffff9092168252519081900360200190f35b3480156101fc57600080fd5b50610113610451565b34801561021157600080fd5b5061016661045e565b34801561022657600080fd5b5061014f6004803603602081101561023d57600080fd5b50356001600160a01b031661046d565b34801561025957600080fd5b5061014f600480360360c081101561027057600080fd5b506001600160a01b0381358116916020810135821691604082013581169160608101358216916080820135169060a00135610497565b3480156102b257600080fd5b50610113610562565b3480156102c757600080fd5b506102d0610568565b604051808260018111156102e057fe5b815260200191505060405180910390f35b3480156102fd57600080fd5b50610113610571565b34801561031257600080fd5b5061016661079f565b34801561032757600080fd5b506101666107ae565b60395481565b61033e6107bd565b68056bc75e2d63100000811061039b576040805162461bcd60e51b815260206004820152601e60248201527f616d6f756e742069732067726561746572207468616e206d6178696d756d0000604482015290519081900360640190fd5b603955565b6033546001600160a01b031681565b6103b76107bd565b60008160018111156103c557fe5b14806103dc575060018160018111156103da57fe5b145b61041d576040805162461bcd60e51b815260206004820152600d60248201526c696e76616c696420737461746560981b604482015290519081900360640190fd5b603b805482919060ff19166001838181111561043557fe5b021790555050565b6036546001600160a01b031681565b601d81565b68056bc75e2d6310000081565b6035546001600160a01b031681565b6104756107bd565b603880546001600160a01b0319166001600160a01b0392909216919091179055565b600054610100900460ff16806104b057506104b061080e565b806104be575060005460ff16155b6104f95760405162461bcd60e51b815260040180806020018281038252602e8152602001806109ef602e913960400191505060405180910390fd5b600054610100900460ff16158015610524576000805460ff1961ff0019909116610100171660011790555b61052d87610814565b61053a86868686866108d2565b603b805460ff191660011790558015610559576000805461ff00191690555b50505050505050565b60375481565b603b5460ff1681565b6033546000906001600160a01b031633146105ce576040805162461bcd60e51b815260206004820152601860248201527756616c696461746f727320636f6e7472616374206f6e6c7960401b604482015290519081900360640190fd5b436000908152603a60205260409020541561061a5760405162461bcd60e51b81526004018080602001828103825260268152602001806109c96026913960400191505060405180910390fd5b6001603b5460ff16600181111561062d57fe5b1461063a5750600061079c565b600060395447111561064f5750603954610652565b50475b436000908152603a602090815260408083206001905580518381529182019052339083906040518082805190602001908083835b602083106106a55780518252601f199092019160209182019101610686565b6001836020036101000a03801982511681845116808217855250505050505090500191505060006040518083038185875af1925050503d8060008114610707576040519150601f19603f3d011682016040523d82523d6000602084013e61070c565b606091505b5050905080610762576040805162461bcd60e51b815260206004820181905260248201527f52657365727665506f6f6c3a20656763207472616e73666572206661696c6564604482015290519081900360640190fd5b60408051838152905133917f884edad9ce6fa2440d8a54cc123490eb96d2768479d49ff9c7366125a9424364919081900360200190a25090505b90565b6034546001600160a01b031681565b6038546001600160a01b031681565b6038546001600160a01b0316331461080c576040805162461bcd60e51b815260206004820152600d60248201526c36bab9ba1031329030b236b4b760991b604482015290519081900360640190fd5b565b303b1590565b600054610100900460ff168061082d575061082d61080e565b8061083b575060005460ff16155b6108765760405162461bcd60e51b815260040180806020018281038252602e8152602001806109ef602e913960400191505060405180910390fd5b600054610100900460ff161580156108a1576000805460ff1961ff0019909116610100171660011790555b603880546001600160a01b0319166001600160a01b03841617905580156108ce576000805461ff00191690555b5050565b600054610100900460ff16806108eb57506108eb61080e565b806108f9575060005460ff16155b6109345760405162461bcd60e51b815260040180806020018281038252602e8152602001806109ef602e913960400191505060405180910390fd5b600054610100900460ff1615801561095f576000805460ff1961ff0019909116610100171660011790555b603380546001600160a01b038089166001600160a01b03199283161790925560348054888416908316179055603580548784169083161790556036805492861692909116919091179055603782905580156109c0576000805461ff00191690555b50505050505056fe6d756c7469706c65207769746864726177616c7320696e20612073696e676c6520626c6f636b436f6e747261637420696e7374616e63652068617320616c7265616479206265656e20696e697469616c697a6564a2646970667358221220c02da66d624cf0049a7195805d68ba5be765ebfe5f160411f0d1e96582a43c6e64736f6c634300060c0033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 5,
+        "contract": "contracts/ReservePool.sol:ReservePool",
+        "label": "initialized",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 8,
+        "contract": "contracts/ReservePool.sol:ReservePool",
+        "label": "initializing",
+        "offset": 1,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 73,
+        "contract": "contracts/ReservePool.sol:ReservePool",
+        "label": "______gap",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 136,
+        "contract": "contracts/ReservePool.sol:ReservePool",
+        "label": "VALIDATOR_CONTRACT",
+        "offset": 0,
+        "slot": "51",
+        "type": "t_contract(IValidators)6439"
+      },
+      {
+        "astId": 138,
+        "contract": "contracts/ReservePool.sol:ReservePool",
+        "label": "PUBLISH_CONTRACT",
+        "offset": 0,
+        "slot": "52",
+        "type": "t_contract(IPunish)6322"
+      },
+      {
+        "astId": 140,
+        "contract": "contracts/ReservePool.sol:ReservePool",
+        "label": "PROPOSAL_CONTRACT",
+        "offset": 0,
+        "slot": "53",
+        "type": "t_contract(IProposal)6314"
+      },
+      {
+        "astId": 142,
+        "contract": "contracts/ReservePool.sol:ReservePool",
+        "label": "RESERVEPOOL_CONTRACT",
+        "offset": 0,
+        "slot": "54",
+        "type": "t_contract(IReservePool)6330"
+      },
+      {
+        "astId": 144,
+        "contract": "contracts/ReservePool.sol:ReservePool",
+        "label": "EPOCH",
+        "offset": 0,
+        "slot": "55",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 81,
+        "contract": "contracts/ReservePool.sol:ReservePool",
+        "label": "admin",
+        "offset": 0,
+        "slot": "56",
+        "type": "t_address"
+      },
+      {
+        "astId": 1245,
+        "contract": "contracts/ReservePool.sol:ReservePool",
+        "label": "blockRewardAmount",
+        "offset": 0,
+        "slot": "57",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 1252,
+        "contract": "contracts/ReservePool.sol:ReservePool",
+        "label": "_rewardWithdrawnRecords",
+        "offset": 0,
+        "slot": "58",
+        "type": "t_mapping(t_uint256,t_uint256)"
+      },
+      {
+        "astId": 1275,
+        "contract": "contracts/ReservePool.sol:ReservePool",
+        "label": "state",
+        "offset": 0,
+        "slot": "59",
+        "type": "t_enum(State)1243"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_uint256)50_storage": {
+        "base": "t_uint256",
+        "encoding": "inplace",
+        "label": "uint256[50]",
+        "numberOfBytes": "1600"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_contract(IProposal)6314": {
+        "encoding": "inplace",
+        "label": "contract IProposal",
+        "numberOfBytes": "20"
+      },
+      "t_contract(IPunish)6322": {
+        "encoding": "inplace",
+        "label": "contract IPunish",
+        "numberOfBytes": "20"
+      },
+      "t_contract(IReservePool)6330": {
+        "encoding": "inplace",
+        "label": "contract IReservePool",
+        "numberOfBytes": "20"
+      },
+      "t_contract(IValidators)6439": {
+        "encoding": "inplace",
+        "label": "contract IValidators",
+        "numberOfBytes": "20"
+      },
+      "t_enum(State)1243": {
+        "encoding": "inplace",
+        "label": "enum ReservePool.State",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_uint256,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

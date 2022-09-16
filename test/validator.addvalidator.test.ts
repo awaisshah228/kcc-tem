@@ -30,8 +30,8 @@ describe("validators: addValidator", function () {
     const REDEEM_LOCK_DURATION = 3 * 24 * 60 * 60; // 3 days 
     const FEE_SET_LOCKING_DURATION = 1 * 24 * 60 * 60; // 1 day 
     const INITIAL_FEE_SHARE = 2000; // initial commission fee rate for validator （20%）
-    const MIN_SELF_BALLOTS_IN_KCS = ethers.constants.WeiPerEther.mul(10000); // minimum Self Ballots denominated in KCS 
-    const MIN_SELF_BALLOTS = MIN_SELF_BALLOTS_IN_KCS.div(ethers.constants.WeiPerEther);
+    const MIN_SELF_BALLOTS_IN_egc = ethers.constants.WeiPerEther.mul(10000); // minimum Self Ballots denominated in egc 
+    const MIN_SELF_BALLOTS = MIN_SELF_BALLOTS_IN_egc.div(ethers.constants.WeiPerEther);
 
     beforeEach(async () => {
 
@@ -46,8 +46,8 @@ describe("validators: addValidator", function () {
         initialValidators = others.slice(0, 7); // the first 7 candidate as the init validators
         candidates = others.slice(7); // the remaining are candidates 
 
-        // initial KCS in contract 
-        await setBalance(validatorContract.address,MIN_SELF_BALLOTS_IN_KCS.mul(initialValidators.length));
+        // initial egc in contract 
+        await setBalance(validatorContract.address,MIN_SELF_BALLOTS_IN_egc.mul(initialValidators.length));
         
 
         // initialize for the first time 
@@ -293,7 +293,7 @@ describe("validators: addValidator", function () {
     });
 
 
-    it("addvalidator with msg.value == MIN_SELF_BALLOTS_IN_KCS", async function () {
+    it("addvalidator with msg.value == MIN_SELF_BALLOTS_IN_egc", async function () {
         // some candidate 
         let [candidateA, candidateB] = candidates
 
@@ -310,7 +310,7 @@ describe("validators: addValidator", function () {
             "candiateA",
             "candiateA's website",
             "candiateA's email",{
-                value: MIN_SELF_BALLOTS_IN_KCS, // enough marginAmount 
+                value: MIN_SELF_BALLOTS_IN_egc, // enough marginAmount 
             })
 
         // get block number & timestamp of previous tx 
@@ -354,7 +354,7 @@ describe("validators: addValidator", function () {
             .contains(candidateA.address);
     });
 
-    it("addvalidator with msg.value == 0.1 KCS", async function () {
+    it("addvalidator with msg.value == 0.1 egc", async function () {
         // some candidate 
         let [candidateA, candiateB] = candidates
 
@@ -371,7 +371,7 @@ describe("validators: addValidator", function () {
             "candiateA",
             "candiateA's website",
             "candiateA's email",{
-                value: BigNumber.from(10).pow(17) // 0.1 KCS
+                value: BigNumber.from(10).pow(17) // 0.1 egc
             }),
             "msg.value must be integer multiples of 1 ether")
             .to.be.reverted;
@@ -396,7 +396,7 @@ describe("validators: addValidator", function () {
             "candiateA",
             "candiateA's website",
             "candiateA's email",{
-                value: MIN_SELF_BALLOTS_IN_KCS, // enough marginAmount 
+                value: MIN_SELF_BALLOTS_IN_egc, // enough marginAmount 
             })
 
         // get block number & timestamp of previous tx 
@@ -427,7 +427,7 @@ describe("validators: addValidator", function () {
             "candiateA",
             "candiateA's website",
             "candiateA's email",{
-                value: MIN_SELF_BALLOTS_IN_KCS, // add more margin 
+                value: MIN_SELF_BALLOTS_IN_egc, // add more margin 
             })     
             
         // margin will be accumulated to the same old pool 

@@ -20,8 +20,8 @@ describe("validators: test voter claim reward", function () {
 
     const MAX_VALIDATORS = 29; // the max number of validators
     const INITIAL_FEE_SHARE = 2000; // initial commission fee rate for validator  20%
-    const MIN_SELF_BALLOTS_IN_KCS = ethers.constants.WeiPerEther.mul(10000); // minimum Self Ballots denominated in KCS
-    const MIN_SELF_BALLOTS = MIN_SELF_BALLOTS_IN_KCS.div(ethers.constants.WeiPerEther);
+    const MIN_SELF_BALLOTS_IN_egc = ethers.constants.WeiPerEther.mul(10000); // minimum Self Ballots denominated in egc
+    const MIN_SELF_BALLOTS = MIN_SELF_BALLOTS_IN_egc.div(ethers.constants.WeiPerEther);
 
     beforeEach(async()=>{
 
@@ -35,8 +35,8 @@ describe("validators: test voter claim reward", function () {
         initialValidators = others.slice(0, MAX_VALIDATORS + 1); // 30 initial validators
         voters = others.slice(MAX_VALIDATORS+1); // voters
 
-        // initial KCS in contract
-        await setBalance(validatorContract.address,MIN_SELF_BALLOTS_IN_KCS.mul(initialValidators.length));
+        // initial egc in contract
+        await setBalance(validatorContract.address,MIN_SELF_BALLOTS_IN_egc.mul(initialValidators.length));
         await setBalance(reservePoolMock.address,ethers.constants.WeiPerEther.mul(10000));
 
 
@@ -187,7 +187,7 @@ describe("validators: test voter claim reward", function () {
 
         let votesBefore = await validatorContract.getPoolsuppliedBallot(unluckyCandidate.address);
         await validatorContract.connect(someVoter).vote(unluckyCandidate.address,{
-            value: ethers.constants.WeiPerEther.mul(5) // vote 5 KCS to the unlucky candidate
+            value: ethers.constants.WeiPerEther.mul(5) // vote 5 egc to the unlucky candidate
         });
         let votesAfter = await validatorContract.getPoolsuppliedBallot(unluckyCandidate.address);
 
@@ -236,7 +236,7 @@ describe("validators: test voter claim reward", function () {
         let originBalance = await someVoter.getBalance();
 
         await validatorContract.connect(someVoter).vote(initialValidators[0].address,{
-            value: ethers.constants.WeiPerEther.mul(5), // vote 5 KCS to the unlucky candidate
+            value: ethers.constants.WeiPerEther.mul(5), // vote 5 egc to the unlucky candidate
             gasPrice: 0,
         });
 
@@ -300,7 +300,7 @@ describe("validators: test voter claim reward", function () {
 
 
 
-    it("vote with 1.5 KCS", async function () {
+    it("vote with 1.5 egc", async function () {
 
         // validator and voter to play with 
         const [val,] = initialValidators;
@@ -318,7 +318,7 @@ describe("validators: test voter claim reward", function () {
 
         expect(
             preBalance.sub(afterBalance),
-            "0.5 KCS should be returned"
+            "0.5 egc should be returned"
         ).eq(
             ethers.utils.parseEther("1.0")
         )
@@ -356,7 +356,7 @@ describe("validators: test voter claim reward", function () {
 
         const preBlance = await user.getBalance();
 
-        // vote 1 KCS 
+        // vote 1 egc 
         await validatorContract.connect(user).vote(val.address,{
                 value: ethers.utils.parseEther("1"),
                 gasPrice: BigNumber.from(0),
@@ -406,7 +406,7 @@ describe("validators: test voter claim reward", function () {
 
         const preBlance = await user.getBalance();
 
-        // revoke 1 KCS 
+        // revoke 1 egc 
         await validatorContract.connect(user).revokeVote(val.address, 1,{
                 gasPrice: BigNumber.from(0),
         });
@@ -430,13 +430,13 @@ describe("validators: test voter claim reward", function () {
         const [val,] = initialValidators;
         const [user,miner] = voters;
 
-        // vote 2 KCS 
+        // vote 2 egc 
         await validatorContract.connect(user).vote(val.address,{
             value: ethers.utils.parseEther("2"),
             gasPrice: BigNumber.from(0), // hack with 0 gas price 
         });
 
-        // revoke 1 KCS 
+        // revoke 1 egc 
         await validatorContract.connect(user).revokeVote(val.address, 1,{
                 gasPrice: BigNumber.from(0),
         });
@@ -452,7 +452,7 @@ describe("validators: test voter claim reward", function () {
 
         const preBalance =await user.getBalance();
 
-        // reovoke another KCS 
+        // reovoke another egc 
         await validatorContract.connect(user).revokeVote(val.address,1,
             {
                 gasPrice: 0

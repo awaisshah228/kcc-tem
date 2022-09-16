@@ -34,8 +34,8 @@ async function main() {
     const MULTICALL_ADDRESS = "0xfffffffffffffffffffffffffffffffffffff999"
 
     const INITIAL_FEE_SHARE = 2000; // initial commission fee rate for validator 
-    const MIN_SELF_BALLOTS_IN_KCS = ethers.constants.WeiPerEther.mul(10000); // minimum Self Ballots denominated in KCS 
-    const MIN_SELF_BALLOTS = MIN_SELF_BALLOTS_IN_KCS.div(ethers.constants.WeiPerEther);
+    const MIN_SELF_BALLOTS_IN_egc = ethers.constants.WeiPerEther.mul(10000); // minimum Self Ballots denominated in egc 
+    const MIN_SELF_BALLOTS = MIN_SELF_BALLOTS_IN_egc.div(ethers.constants.WeiPerEther);
     const EPOCH = 100; 
 
 
@@ -53,7 +53,7 @@ async function main() {
     const initialValidators = [val1,val2,val3,val4];
 
     // initialize Validators 
-    await setBalance(validatorContract.address,MIN_SELF_BALLOTS_IN_KCS.mul(initialValidators.length));
+    await setBalance(validatorContract.address,MIN_SELF_BALLOTS_IN_egc.mul(initialValidators.length));
     await validatorContract.initialize(
         initialValidators.map(v => v.address),
         initialValidators.map(v => v.address),
@@ -65,7 +65,7 @@ async function main() {
         reservePoolContract.address,EPOCH);
 
     // initialize reservePoolContract 
-    await setBalance(reservePoolContract.address,MIN_SELF_BALLOTS_IN_KCS.mul(30));
+    await setBalance(reservePoolContract.address,MIN_SELF_BALLOTS_IN_egc.mul(30));
     await reservePoolContract.initialize(admin.address,
                 validatorContract.address,
                 punishContract.address,

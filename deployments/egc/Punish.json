@@ -1,0 +1,540 @@
+{
+  "address": "0x97442B75581Fe067aA86803830fF1D0e497eE5De",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "LogDecreaseMissedBlocksCounter",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "val",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "time",
+          "type": "uint256"
+        }
+      ],
+      "name": "LogPunishValidator",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "EPOCH",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "MAX_VALIDATORS",
+      "outputs": [
+        {
+          "internalType": "uint16",
+          "name": "",
+          "type": "uint16"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "PROPOSAL_CONTRACT",
+      "outputs": [
+        {
+          "internalType": "contract IProposal",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "PUBLISH_CONTRACT",
+      "outputs": [
+        {
+          "internalType": "contract IPunish",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "RESERVEPOOL_CONTRACT",
+      "outputs": [
+        {
+          "internalType": "contract IReservePool",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "VALIDATOR_CONTRACT",
+      "outputs": [
+        {
+          "internalType": "contract IValidators",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "admin",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_admin",
+          "type": "address"
+        }
+      ],
+      "name": "changeAdmin",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "decreaseMissedBlocksCounter",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "decreaseRate",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "val",
+          "type": "address"
+        }
+      ],
+      "name": "getPunishRecord",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getPunishValidatorsLen",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_validatorsContract",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_punishContract",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_proposalContract",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_reservePool",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_admin",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_epoch",
+          "type": "uint256"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_val",
+          "type": "address"
+        }
+      ],
+      "name": "punish",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "punishThreshold",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "punishValidators",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "removeThreshold",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x4abc0a5c36d11fe533c3b795413c0b31f5522e3cd185218423d221e0325416fd",
+  "receipt": {
+    "to": null,
+    "from": "0x9564eF29C289abDf62b196B59aa43d21563035D1",
+    "contractAddress": "0x97442B75581Fe067aA86803830fF1D0e497eE5De",
+    "transactionIndex": 0,
+    "gasUsed": "802548",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x1063c36d084599807b4757ab9007b6a17099d93ba441654e1063410f1c737528",
+    "transactionHash": "0x4abc0a5c36d11fe533c3b795413c0b31f5522e3cd185218423d221e0325416fd",
+    "logs": [],
+    "blockNumber": 2407078,
+    "cumulativeGasUsed": "802548",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "50c1703e60a2395591b3b334630b2a76",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[],\"name\":\"LogDecreaseMissedBlocksCounter\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"val\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"LogPunishValidator\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"EPOCH\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"MAX_VALIDATORS\",\"outputs\":[{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PROPOSAL_CONTRACT\",\"outputs\":[{\"internalType\":\"contract IProposal\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PUBLISH_CONTRACT\",\"outputs\":[{\"internalType\":\"contract IPunish\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"RESERVEPOOL_CONTRACT\",\"outputs\":[{\"internalType\":\"contract IReservePool\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"VALIDATOR_CONTRACT\",\"outputs\":[{\"internalType\":\"contract IValidators\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"admin\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_admin\",\"type\":\"address\"}],\"name\":\"changeAdmin\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"decreaseMissedBlocksCounter\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"decreaseRate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"val\",\"type\":\"address\"}],\"name\":\"getPunishRecord\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getPunishValidatorsLen\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_validatorsContract\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_punishContract\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_proposalContract\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_reservePool\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_admin\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_epoch\",\"type\":\"uint256\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_val\",\"type\":\"address\"}],\"name\":\"punish\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"punishThreshold\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"punishValidators\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"removeThreshold\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/Punish.sol\":\"Punish\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":1},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts-ethereum-package/contracts/Initializable.sol\":{\"content\":\"pragma solidity >=0.4.24 <0.7.0;\\n\\n\\n/**\\n * @title Initializable\\n *\\n * @dev Helper contract to support initializer functions. To use it, replace\\n * the constructor with a function that has the `initializer` modifier.\\n * WARNING: Unlike constructors, initializer functions must be manually\\n * invoked. This applies both to deploying an Initializable contract, as well\\n * as extending an Initializable contract via inheritance.\\n * WARNING: When used with inheritance, manual care must be taken to not invoke\\n * a parent initializer twice, or ensure that all initializers are idempotent,\\n * because this is not dealt with automatically as with constructors.\\n */\\ncontract Initializable {\\n\\n  /**\\n   * @dev Indicates that the contract has been initialized.\\n   */\\n  bool private initialized;\\n\\n  /**\\n   * @dev Indicates that the contract is in the process of being initialized.\\n   */\\n  bool private initializing;\\n\\n  /**\\n   * @dev Modifier to use in the initializer function of a contract.\\n   */\\n  modifier initializer() {\\n    require(initializing || isConstructor() || !initialized, \\\"Contract instance has already been initialized\\\");\\n\\n    bool isTopLevelCall = !initializing;\\n    if (isTopLevelCall) {\\n      initializing = true;\\n      initialized = true;\\n    }\\n\\n    _;\\n\\n    if (isTopLevelCall) {\\n      initializing = false;\\n    }\\n  }\\n\\n  /// @dev Returns true if and only if the function is running in the constructor\\n  function isConstructor() private view returns (bool) {\\n    // extcodesize checks the size of the code stored in an address, and\\n    // address returns the current address. Since the code is still not\\n    // deployed when running a constructor, any checks on its code size will\\n    // yield zero, making it an effective way to detect if a contract is\\n    // under construction or not.\\n    address self = address(this);\\n    uint256 cs;\\n    assembly { cs := extcodesize(self) }\\n    return cs == 0;\\n  }\\n\\n  // Reserved storage space to allow for layout changes in the future.\\n  uint256[50] private ______gap;\\n}\\n\",\"keccak256\":\"0x9bfec92e36234ecc99b5d37230acb6cd1f99560233753162204104a4897e8721\"},\"contracts/Admin.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity >=0.6.0 <0.8.0;\\r\\n\\r\\nimport \\\"@openzeppelin/contracts-ethereum-package/contracts/Initializable.sol\\\";\\r\\n\\r\\ncontract Admin is Initializable {\\r\\n    address public admin;\\r\\n\\r\\n    // solhint-disable func-name-mixedcase\\r\\n    function _Admin_Init(address _admin) internal initializer {\\r\\n        admin = _admin;\\r\\n    }\\r\\n\\r\\n    function _onlyAdmin() private view {\\r\\n        require(msg.sender == admin, \\\"must be admin\\\");\\r\\n    }\\r\\n\\r\\n    modifier onlyAdmin() {\\r\\n        _onlyAdmin();\\r\\n        _;\\r\\n    }\\r\\n\\r\\n    function changeAdmin(address _admin) public onlyAdmin {\\r\\n        admin = _admin;\\r\\n    }\\r\\n}\\r\\n\",\"keccak256\":\"0x7bad7fa804122c3a58d53db49371851ce060a42a88b8e0134ffbe8dc9c3832e7\",\"license\":\"MIT\"},\"contracts/Params.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity >=0.6.0 <0.8.0;\\r\\n\\r\\nimport \\\"./interfaces/IValidators.sol\\\";\\r\\nimport \\\"./interfaces/IPunish.sol\\\";\\r\\nimport \\\"./interfaces/IProposal.sol\\\";\\r\\nimport \\\"./interfaces/IReservePool.sol\\\";\\r\\nimport \\\"@openzeppelin/contracts-ethereum-package/contracts/Initializable.sol\\\";\\r\\n \\r\\ncontract Params is Initializable {\\r\\n\\r\\n    // System contracts addresses \\r\\n    IValidators public  VALIDATOR_CONTRACT; // solhint-disable var-name-mixedcase\\r\\n    IPunish public  PUBLISH_CONTRACT;       // solhint-disable var-name-mixedcase\\r\\n    IProposal public  PROPOSAL_CONTRACT;    // solhint-disable var-name-mixedcase\\r\\n    IReservePool public RESERVEPOOL_CONTRACT; // solhint-disable var-name-mixedcase\\r\\n    uint256 public EPOCH; // solhint-disable var-name-mixedcase\\r\\n\\r\\n    // System params\\r\\n    uint16 public constant MAX_VALIDATORS = 29;\\r\\n\\r\\n    function _onlyMiner() private view {\\r\\n        require(msg.sender == block.coinbase, \\\"Miner only\\\");\\r\\n    }\\r\\n    \\r\\n\\r\\n    modifier onlyMiner() {\\r\\n        _onlyMiner();\\r\\n        _;\\r\\n    }\\r\\n    function _onlyPunishContract() private view {\\r\\n        require(msg.sender == address(PUBLISH_CONTRACT), \\\"Punish contract only\\\");\\r\\n    }\\r\\n\\r\\n    modifier onlyPunishContract() {\\r\\n        _onlyPunishContract();\\r\\n        _;\\r\\n    }\\r\\n    \\r\\n\\r\\n    modifier onlyBlockEpoch {\\r\\n        require(block.number % EPOCH == 0, \\\"Block epoch only\\\");\\r\\n        _;\\r\\n    }\\r\\n\\r\\n    modifier onlyValidatorsContract() {\\r\\n        require(msg.sender == address(VALIDATOR_CONTRACT), \\\"Validators contract only\\\");\\r\\n        _;\\r\\n\\r\\n    }\\r\\n\\r\\n    function _setAddressesAndEpoch(\\r\\n            address _validatorsContract,\\r\\n            address _punishContract,\\r\\n            address _proposalContract,\\r\\n            address _reservePool,\\r\\n            uint256 epoch\\r\\n    ) internal initializer{\\r\\n        VALIDATOR_CONTRACT = IValidators(payable(_validatorsContract));\\r\\n        PUBLISH_CONTRACT = IPunish(payable(_punishContract));\\r\\n        PROPOSAL_CONTRACT = IProposal(payable(_proposalContract));\\r\\n        RESERVEPOOL_CONTRACT = IReservePool(payable(_reservePool));\\r\\n        EPOCH = epoch;\\r\\n    }\\r\\n\\r\\n}\\r\\n\",\"keccak256\":\"0xa887827926217dfded2a6c59bb78b10527bae1e957132c6171b211e7e54028e6\",\"license\":\"MIT\"},\"contracts/Punish.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\npragma solidity >=0.6.0 <0.8.0;\\r\\n\\r\\nimport \\\"./Params.sol\\\";\\r\\nimport \\\"./interfaces/IValidators.sol\\\";\\r\\nimport \\\"./Admin.sol\\\";\\r\\n\\r\\ncontract Punish is Params, Admin {\\r\\n    uint256 public punishThreshold;\\r\\n    uint256 public removeThreshold;\\r\\n    uint256 public decreaseRate;\\r\\n\\r\\n    struct PunishRecord {\\r\\n        uint256 missedBlocksCounter;\\r\\n        uint256 index;\\r\\n        bool exist;\\r\\n    }\\r\\n\\r\\n    mapping(address => PunishRecord) internal _punishRecords;\\r\\n    address[] public punishValidators;\\r\\n\\r\\n    mapping(uint256 => bool) internal _punished;\\r\\n    mapping(uint256 => bool) internal _decreased;\\r\\n\\r\\n    event LogDecreaseMissedBlocksCounter();\\r\\n    event LogPunishValidator(address indexed val, uint256 time);\\r\\n\\r\\n    modifier onlyNotPunished() {\\r\\n        require(!_punished[block.number], \\\"Already _punished\\\");\\r\\n        _;\\r\\n    }\\r\\n\\r\\n    modifier onlyNotDecreased() {\\r\\n        require(!_decreased[block.number], \\\"Already _decreased\\\");\\r\\n        _;\\r\\n    }\\r\\n\\r\\n    function initialize(\\r\\n        address _validatorsContract,\\r\\n        address _punishContract,\\r\\n        address _proposalContract,\\r\\n        address _reservePool,\\r\\n        address _admin,\\r\\n        uint256 _epoch\\r\\n    ) external initializer {\\r\\n        _Admin_Init(_admin);\\r\\n        _setAddressesAndEpoch(\\r\\n            _validatorsContract,\\r\\n            _punishContract,\\r\\n            _proposalContract,\\r\\n            _reservePool,\\r\\n            _epoch\\r\\n        );\\r\\n        punishThreshold = 24;\\r\\n        removeThreshold = 48;\\r\\n        decreaseRate = 24;\\r\\n    }\\r\\n\\r\\n    function punish(address _val) external onlyMiner onlyNotPunished {\\r\\n        _punished[block.number] = true;\\r\\n\\r\\n        // Don't punish the validator again who was jailed\\r\\n        if (!VALIDATOR_CONTRACT.getPoolenabled(_val)) {\\r\\n            return;\\r\\n        }\\r\\n        if (!_punishRecords[_val].exist) {\\r\\n            _punishRecords[_val].index = punishValidators.length;\\r\\n            punishValidators.push(_val);\\r\\n            _punishRecords[_val].exist = true;\\r\\n        }\\r\\n        _punishRecords[_val].missedBlocksCounter++;\\r\\n\\r\\n        if (_punishRecords[_val].missedBlocksCounter % removeThreshold == 0) {\\r\\n            VALIDATOR_CONTRACT.punish(_val, true);\\r\\n            // reset validator's missed blocks counter\\r\\n            _punishRecords[_val].missedBlocksCounter = 0;\\r\\n            _cleanPunishRecord(_val);\\r\\n        } else if (\\r\\n            _punishRecords[_val].missedBlocksCounter % punishThreshold == 0\\r\\n        ) {\\r\\n            VALIDATOR_CONTRACT.punish(_val, false);\\r\\n        }\\r\\n\\r\\n        emit LogPunishValidator(_val, block.timestamp); // solhint-disable-line not-rely-on-time\\r\\n    }\\r\\n\\r\\n    function decreaseMissedBlocksCounter()\\r\\n        external\\r\\n        onlyMiner\\r\\n        onlyNotDecreased\\r\\n        onlyBlockEpoch\\r\\n    {\\r\\n        _decreased[block.number] = true;\\r\\n        if (punishValidators.length == 0) {\\r\\n            return;\\r\\n        }\\r\\n\\r\\n        for (uint256 i = 0; i < punishValidators.length; i++) {\\r\\n            if (\\r\\n                _punishRecords[punishValidators[i]].missedBlocksCounter >\\r\\n                removeThreshold / decreaseRate\\r\\n            ) {\\r\\n                _punishRecords[punishValidators[i]].missedBlocksCounter =\\r\\n                    _punishRecords[punishValidators[i]].missedBlocksCounter -\\r\\n                    removeThreshold /\\r\\n                    decreaseRate;\\r\\n            } else {\\r\\n                _punishRecords[punishValidators[i]].missedBlocksCounter = 0;\\r\\n            }\\r\\n        }\\r\\n\\r\\n        emit LogDecreaseMissedBlocksCounter();\\r\\n    }\\r\\n\\r\\n    // clean validator's punish record if one vote in\\r\\n    function _cleanPunishRecord(address _val) internal {\\r\\n        if (_punishRecords[_val].missedBlocksCounter != 0) {\\r\\n            _punishRecords[_val].missedBlocksCounter = 0;\\r\\n        }\\r\\n\\r\\n        // remove it out of array if exist\\r\\n        if (_punishRecords[_val].exist && punishValidators.length > 0) {\\r\\n            if (_punishRecords[_val].index != punishValidators.length - 1) {\\r\\n                address _tail = punishValidators[punishValidators.length - 1];\\r\\n                punishValidators[_punishRecords[_val].index] = _tail;\\r\\n\\r\\n                _punishRecords[_tail].index = _punishRecords[_val].index;\\r\\n            }\\r\\n            punishValidators.pop();\\r\\n            _punishRecords[_val].index = 0;\\r\\n            _punishRecords[_val].exist = false;\\r\\n        }\\r\\n    }\\r\\n\\r\\n    function getPunishValidatorsLen() public view returns (uint256) {\\r\\n        return punishValidators.length;\\r\\n    }\\r\\n\\r\\n    function getPunishRecord(address val) public view returns (uint256) {\\r\\n        return _punishRecords[val].missedBlocksCounter;\\r\\n    }\\r\\n}\\r\\n\",\"keccak256\":\"0x0064c6441a97df7c0f7c9ad791ff8aca6880984956a31a553b3cf38441b661d7\",\"license\":\"MIT\"},\"contracts/interfaces/IProposal.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\n\\r\\npragma solidity >=0.6.0 <0.8.0;\\r\\n\\r\\n\\r\\ninterface IProposal {\\r\\n\\r\\n    function isProposalPassed(address val, bytes32 id) external view returns(bool);\\r\\n\\r\\n}\",\"keccak256\":\"0x3a14cd101741d401651690f9f4505a9238830b78e3c3ec0a47be4e8b5015828b\",\"license\":\"MIT\"},\"contracts/interfaces/IPunish.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\n\\r\\npragma solidity >=0.6.0 <0.8.0;\\r\\n\\r\\ninterface IPunish {\\r\\n    function punish(address _val) external;\\r\\n}\\r\\n\",\"keccak256\":\"0x81e7412124aba81995f5f08f3e15cdde76a228d8759ef0ca01ddd2116d01dad6\",\"license\":\"MIT\"},\"contracts/interfaces/IReservePool.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\n\\r\\npragma solidity >=0.6.0 <0.8.0;\\r\\n\\r\\ninterface IReservePool {\\r\\n    function withdrawBlockReward() external returns (uint256);\\r\\n}\\r\\n\",\"keccak256\":\"0x1552fe59b3b51be20d67f2b64ac0023e94d323e82f8defccbcb00e3ba66a8cff\",\"license\":\"MIT\"},\"contracts/interfaces/IValidators.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\n\\r\\npragma solidity >=0.6.0 <0.8.0;\\r\\n\\r\\n\\r\\ninterface IValidators {\\r\\n\\r\\n\\r\\n    // Info of each pool.\\r\\n    struct PoolInfo {\\r\\n        address validator;   // Address of validator.\\r\\n        address manager; \\r\\n        uint256 selfBallots;      // The validator's Margin in ballots\\r\\n        uint256 selfBallotsRewardsDebt;  // The validator's reward debt corresponding to selfBallots \\r\\n        uint256 feeShares;   // The commission rate in 1/10000 \\r\\n        uint256 pendingFee;  // The pending commission fee of the validator \\r\\n        uint256 feeDebt;     // The validators's commission fee debt, i.e, commission fees already withdrawn \\r\\n        uint256 lastRewardBlock;   // Last block number that the validator is rewarded\\r\\n        uint256 feeSettLockingEndTime;  // feeShares can not be changed before feeSettLockingEndTime \\r\\n        uint256 suppliedBallots; // Total ballots voted to this validator \\r\\n        uint256 accRewardPerShare; // Accumulated egcs per share, times 1e12.\\r\\n        uint256 voterNumber; // The number of votes of the validator \\r\\n        uint256 electedNumber; // The number of times the validator is rewarded.\\r\\n        bool enabled;    \\r\\n    }\\r\\n\\r\\n    // The detailed information of a validator \\r\\n    struct Description {\\r\\n        string website;\\r\\n        string email;\\r\\n        string details;\\r\\n    }\\r\\n\\r\\n    // Info of each user.\\r\\n    struct UserInfo {\\r\\n        uint256 amount; // How many ballot tokens the user has provided.\\r\\n        uint256 rewardDebt; // Reward debt.\\r\\n    }\\r\\n\\r\\n\\r\\n    // Info of each pool.\\r\\n    struct VotingData {\\r\\n        address validator;          //  The address of the validator \\r\\n        uint256 validatorBallot;    //  The total ballots of the validator \\r\\n        uint256 feeShares;          //  The commission rate of the validator in 1/10000\\r\\n        uint256 ballot;             //  The user's ballots in this validator \\r\\n        uint256 pendingReward;          // The user's pending reward \\r\\n        uint256 revokingBallot;         // The user's revoking ballots \\r\\n        uint256 revokeLockingEndTime;   // The user can withdraw KSCs corresponding to revokingBallot after revokeLockingEndTime\\r\\n    }\\r\\n\\r\\n    // The Revoking info of a user's ballots\\r\\n    struct RevokingInfo {\\r\\n        uint256 amount; // The amount of ballots that user is revoking \\r\\n        uint256 lockingEndTime; // The user can withdraw his/her revoking ballots after lockingEndTime\\r\\n    }\\r\\n\\r\\n    enum Operation {Distributed, UpdatedValidators}\\r\\n\\r\\n    function punish(address validator, bool remove) external; \\r\\n\\r\\n\\r\\n  \\r\\n    // @dev This can only be called by the miner from the KCC node. \\r\\n    function distributeBlockReward() external payable;\\r\\n    \\r\\n    function updateActiveValidatorSet(address[] calldata newSet)  external;\\r\\n\\r\\n    function getTopValidators()  external view returns (address[] memory); \\r\\n\\r\\n    function isActiveValidator(address val) external view returns (bool);\\r\\n\\r\\n    function getActiveValidators() external view returns (address[] memory);\\r\\n\\r\\n    function getPoolenabled(address val) external view returns (bool);\\r\\n\\r\\n}\\r\\n\\r\\n\",\"keccak256\":\"0x17984ffd555b5cf4af44e5ec6f40b2bde6cc5e5af0c7f36f63ee73b3c7de584f\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610d8e806100206000396000f3fe608060405234801561001057600080fd5b50600436106100db5760003560e01c80632897183d146100e057806332f3c17f146100fa57806344c1aa991461012057806346f75138146101285780635e81f1f81461014c57806360c80cbf14610156578063714897df1461015e578063863a20b71461017d5780638f2839701461018557806395b6ef0c146101ab578063a0dc2758146101f7578063cb1ea725146101ff578063e0d8ea5314610207578063e5a99f4f1461020f578063ea7221a114610217578063f62af26c1461023d578063f851a4401461025a575b600080fd5b6100e8610262565b60408051918252519081900360200190f35b6100e86004803603602081101561011057600080fd5b50356001600160a01b0316610268565b6100e8610283565b610130610289565b604080516001600160a01b039092168252519081900360200190f35b610154610298565b005b6101306104bc565b6101666104cb565b6040805161ffff9092168252519081900360200190f35b6101306104d0565b6101546004803603602081101561019b57600080fd5b50356001600160a01b03166104df565b610154600480360360c08110156101c157600080fd5b506001600160a01b0381358116916020810135821691604082013581169160608101358216916080820135169060a00135610509565b6100e86105d6565b6100e86105dc565b6100e86105e2565b6101306105e8565b6101546004803603602081101561022d57600080fd5b50356001600160a01b03166105f7565b6101306004803603602081101561025357600080fd5b5035610921565b610130610948565b603b5481565b6001600160a01b03166000908152603c602052604090205490565b603a5481565b6033546001600160a01b031681565b6102a0610957565b436000908152603f602052604090205460ff16156102fa576040805162461bcd60e51b8152602060048201526012602482015271105b1c9958591e4817d91958dc99585cd95960721b604482015290519081900360640190fd5b603754438161030557fe5b061561034b576040805162461bcd60e51b815260206004820152601060248201526f426c6f636b2065706f6368206f6e6c7960801b604482015290519081900360640190fd5b436000908152603f60205260409020805460ff19166001179055603d54610371576104ba565b60005b603d5481101561048f57603b54603a548161038b57fe5b04603c6000603d848154811061039d57fe5b60009182526020808320909101546001600160a01b03168352820192909252604001902054111561044e57603b54603a54816103d557fe5b04603c6000603d84815481106103e757fe5b60009182526020808320909101546001600160a01b03168352820192909252604001812054603d80549390910392603c9291908590811061042457fe5b60009182526020808320909101546001600160a01b03168352820192909252604001902055610487565b6000603c6000603d848154811061046157fe5b60009182526020808320909101546001600160a01b031683528201929092526040019020555b600101610374565b506040517f181d51be54e8e8eaca6eae0eab32d4162099236bd519e7238d015d0870db464190600090a15b565b6036546001600160a01b031681565b601d81565b6035546001600160a01b031681565b6104e7610998565b603880546001600160a01b0319166001600160a01b0392909216919091179055565b600054610100900460ff168061052257506105226109e7565b80610530575060005460ff16155b61056b5760405162461bcd60e51b815260040180806020018281038252602e815260200180610d2b602e913960400191505060405180910390fd5b600054610100900460ff16158015610596576000805460ff1961ff0019909116610100171660011790555b61059f836109ed565b6105ac8787878786610aab565b601860398190556030603a55603b5580156105cd576000805461ff00191690555b50505050505050565b60375481565b60395481565b603d5490565b6034546001600160a01b031681565b6105ff610957565b436000908152603e602052604090205460ff1615610658576040805162461bcd60e51b8152602060048201526011602482015270105b1c9958591e4817dc1d5b9a5cda1959607a1b604482015290519081900360640190fd5b436000908152603e6020908152604091829020805460ff191660011790556033548251635671334360e01b81526001600160a01b03858116600483015293519390911692635671334392602480840193919291829003018186803b1580156106bf57600080fd5b505afa1580156106d3573d6000803e3d6000fd5b505050506040513d60208110156106e957600080fd5b50516106f45761091e565b6001600160a01b0381166000908152603c602052604090206002015460ff1661078557603d80546001600160a01b0383166000818152603c6020526040812060018082018590558085019095557fece66cfdbd22e3f37d348a3d8e19074452862cd65fd4b9a11f0336d1ac6d1dc390930180546001600160a01b0319168317905552600201805460ff191690911790555b6001600160a01b0381166000908152603c60205260409020805460010190819055603a5490816107b157fe5b0661084a5760335460408051637c01f05360e01b81526001600160a01b0384811660048301526001602483015291519190921691637c01f05391604480830192600092919082900301818387803b15801561080b57600080fd5b505af115801561081f573d6000803e3d6000fd5b5050506001600160a01b0382166000908152603c60205260408120555061084581610ba1565b6108de565b6039546001600160a01b0382166000908152603c60205260409020548161086d57fe5b066108de5760335460408051637c01f05360e01b81526001600160a01b0384811660048301526000602483018190529251931692637c01f0539260448084019391929182900301818387803b1580156108c557600080fd5b505af11580156108d9573d6000803e3d6000fd5b505050505b6040805142815290516001600160a01b038316917f770e0cca42c35d00240986ce8d3ed438be04663c91dac6576b79537d7c180f1e919081900360200190a25b50565b603d818154811061092e57fe5b6000918252602090912001546001600160a01b0316905081565b6038546001600160a01b031681565b3341146104ba576040805162461bcd60e51b815260206004820152600a6024820152694d696e6572206f6e6c7960b01b604482015290519081900360640190fd5b6038546001600160a01b031633146104ba576040805162461bcd60e51b815260206004820152600d60248201526c36bab9ba1031329030b236b4b760991b604482015290519081900360640190fd5b303b1590565b600054610100900460ff1680610a065750610a066109e7565b80610a14575060005460ff16155b610a4f5760405162461bcd60e51b815260040180806020018281038252602e815260200180610d2b602e913960400191505060405180910390fd5b600054610100900460ff16158015610a7a576000805460ff1961ff0019909116610100171660011790555b603880546001600160a01b0319166001600160a01b0384161790558015610aa7576000805461ff00191690555b5050565b600054610100900460ff1680610ac45750610ac46109e7565b80610ad2575060005460ff16155b610b0d5760405162461bcd60e51b815260040180806020018281038252602e815260200180610d2b602e913960400191505060405180910390fd5b600054610100900460ff16158015610b38576000805460ff1961ff0019909116610100171660011790555b603380546001600160a01b038089166001600160a01b0319928316179092556034805488841690831617905560358054878416908316179055603680549286169290911691909117905560378290558015610b99576000805461ff00191690555b505050505050565b6001600160a01b0381166000908152603c602052604090205415610bd9576001600160a01b0381166000908152603c60205260408120555b6001600160a01b0381166000908152603c602052604090206002015460ff168015610c055750603d5415155b1561091e57603d546001600160a01b0382166000908152603c602052604090206001015460001990910114610ccf57603d8054600091906000198101908110610c4a57fe5b60009182526020808320909101546001600160a01b038581168452603c909252604090922060010154603d80549290931693508392918110610c8857fe5b600091825260208083209190910180546001600160a01b0319166001600160a01b039485161790558483168252603c90526040808220600190810154949093168252902001555b603d805480610cda57fe5b60008281526020808220830160001990810180546001600160a01b03191690559092019092556001600160a01b0383168252603c9052604081206001810191909155600201805460ff191690555056fe436f6e747261637420696e7374616e63652068617320616c7265616479206265656e20696e697469616c697a6564a2646970667358221220c9d08e5719fce476b137c902144bb693fcfd1230ecd22b9a1faad5986556658964736f6c634300060c0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100db5760003560e01c80632897183d146100e057806332f3c17f146100fa57806344c1aa991461012057806346f75138146101285780635e81f1f81461014c57806360c80cbf14610156578063714897df1461015e578063863a20b71461017d5780638f2839701461018557806395b6ef0c146101ab578063a0dc2758146101f7578063cb1ea725146101ff578063e0d8ea5314610207578063e5a99f4f1461020f578063ea7221a114610217578063f62af26c1461023d578063f851a4401461025a575b600080fd5b6100e8610262565b60408051918252519081900360200190f35b6100e86004803603602081101561011057600080fd5b50356001600160a01b0316610268565b6100e8610283565b610130610289565b604080516001600160a01b039092168252519081900360200190f35b610154610298565b005b6101306104bc565b6101666104cb565b6040805161ffff9092168252519081900360200190f35b6101306104d0565b6101546004803603602081101561019b57600080fd5b50356001600160a01b03166104df565b610154600480360360c08110156101c157600080fd5b506001600160a01b0381358116916020810135821691604082013581169160608101358216916080820135169060a00135610509565b6100e86105d6565b6100e86105dc565b6100e86105e2565b6101306105e8565b6101546004803603602081101561022d57600080fd5b50356001600160a01b03166105f7565b6101306004803603602081101561025357600080fd5b5035610921565b610130610948565b603b5481565b6001600160a01b03166000908152603c602052604090205490565b603a5481565b6033546001600160a01b031681565b6102a0610957565b436000908152603f602052604090205460ff16156102fa576040805162461bcd60e51b8152602060048201526012602482015271105b1c9958591e4817d91958dc99585cd95960721b604482015290519081900360640190fd5b603754438161030557fe5b061561034b576040805162461bcd60e51b815260206004820152601060248201526f426c6f636b2065706f6368206f6e6c7960801b604482015290519081900360640190fd5b436000908152603f60205260409020805460ff19166001179055603d54610371576104ba565b60005b603d5481101561048f57603b54603a548161038b57fe5b04603c6000603d848154811061039d57fe5b60009182526020808320909101546001600160a01b03168352820192909252604001902054111561044e57603b54603a54816103d557fe5b04603c6000603d84815481106103e757fe5b60009182526020808320909101546001600160a01b03168352820192909252604001812054603d80549390910392603c9291908590811061042457fe5b60009182526020808320909101546001600160a01b03168352820192909252604001902055610487565b6000603c6000603d848154811061046157fe5b60009182526020808320909101546001600160a01b031683528201929092526040019020555b600101610374565b506040517f181d51be54e8e8eaca6eae0eab32d4162099236bd519e7238d015d0870db464190600090a15b565b6036546001600160a01b031681565b601d81565b6035546001600160a01b031681565b6104e7610998565b603880546001600160a01b0319166001600160a01b0392909216919091179055565b600054610100900460ff168061052257506105226109e7565b80610530575060005460ff16155b61056b5760405162461bcd60e51b815260040180806020018281038252602e815260200180610d2b602e913960400191505060405180910390fd5b600054610100900460ff16158015610596576000805460ff1961ff0019909116610100171660011790555b61059f836109ed565b6105ac8787878786610aab565b601860398190556030603a55603b5580156105cd576000805461ff00191690555b50505050505050565b60375481565b60395481565b603d5490565b6034546001600160a01b031681565b6105ff610957565b436000908152603e602052604090205460ff1615610658576040805162461bcd60e51b8152602060048201526011602482015270105b1c9958591e4817dc1d5b9a5cda1959607a1b604482015290519081900360640190fd5b436000908152603e6020908152604091829020805460ff191660011790556033548251635671334360e01b81526001600160a01b03858116600483015293519390911692635671334392602480840193919291829003018186803b1580156106bf57600080fd5b505afa1580156106d3573d6000803e3d6000fd5b505050506040513d60208110156106e957600080fd5b50516106f45761091e565b6001600160a01b0381166000908152603c602052604090206002015460ff1661078557603d80546001600160a01b0383166000818152603c6020526040812060018082018590558085019095557fece66cfdbd22e3f37d348a3d8e19074452862cd65fd4b9a11f0336d1ac6d1dc390930180546001600160a01b0319168317905552600201805460ff191690911790555b6001600160a01b0381166000908152603c60205260409020805460010190819055603a5490816107b157fe5b0661084a5760335460408051637c01f05360e01b81526001600160a01b0384811660048301526001602483015291519190921691637c01f05391604480830192600092919082900301818387803b15801561080b57600080fd5b505af115801561081f573d6000803e3d6000fd5b5050506001600160a01b0382166000908152603c60205260408120555061084581610ba1565b6108de565b6039546001600160a01b0382166000908152603c60205260409020548161086d57fe5b066108de5760335460408051637c01f05360e01b81526001600160a01b0384811660048301526000602483018190529251931692637c01f0539260448084019391929182900301818387803b1580156108c557600080fd5b505af11580156108d9573d6000803e3d6000fd5b505050505b6040805142815290516001600160a01b038316917f770e0cca42c35d00240986ce8d3ed438be04663c91dac6576b79537d7c180f1e919081900360200190a25b50565b603d818154811061092e57fe5b6000918252602090912001546001600160a01b0316905081565b6038546001600160a01b031681565b3341146104ba576040805162461bcd60e51b815260206004820152600a6024820152694d696e6572206f6e6c7960b01b604482015290519081900360640190fd5b6038546001600160a01b031633146104ba576040805162461bcd60e51b815260206004820152600d60248201526c36bab9ba1031329030b236b4b760991b604482015290519081900360640190fd5b303b1590565b600054610100900460ff1680610a065750610a066109e7565b80610a14575060005460ff16155b610a4f5760405162461bcd60e51b815260040180806020018281038252602e815260200180610d2b602e913960400191505060405180910390fd5b600054610100900460ff16158015610a7a576000805460ff1961ff0019909116610100171660011790555b603880546001600160a01b0319166001600160a01b0384161790558015610aa7576000805461ff00191690555b5050565b600054610100900460ff1680610ac45750610ac46109e7565b80610ad2575060005460ff16155b610b0d5760405162461bcd60e51b815260040180806020018281038252602e815260200180610d2b602e913960400191505060405180910390fd5b600054610100900460ff16158015610b38576000805460ff1961ff0019909116610100171660011790555b603380546001600160a01b038089166001600160a01b0319928316179092556034805488841690831617905560358054878416908316179055603680549286169290911691909117905560378290558015610b99576000805461ff00191690555b505050505050565b6001600160a01b0381166000908152603c602052604090205415610bd9576001600160a01b0381166000908152603c60205260408120555b6001600160a01b0381166000908152603c602052604090206002015460ff168015610c055750603d5415155b1561091e57603d546001600160a01b0382166000908152603c602052604090206001015460001990910114610ccf57603d8054600091906000198101908110610c4a57fe5b60009182526020808320909101546001600160a01b038581168452603c909252604090922060010154603d80549290931693508392918110610c8857fe5b600091825260208083209190910180546001600160a01b0319166001600160a01b039485161790558483168252603c90526040808220600190810154949093168252902001555b603d805480610cda57fe5b60008281526020808220830160001990810180546001600160a01b03191690559092019092556001600160a01b0383168252603c9052604081206001810191909155600201805460ff191690555056fe436f6e747261637420696e7374616e63652068617320616c7265616479206265656e20696e697469616c697a6564a2646970667358221220c9d08e5719fce476b137c902144bb693fcfd1230ecd22b9a1faad5986556658964736f6c634300060c0033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 5,
+        "contract": "contracts/Punish.sol:Punish",
+        "label": "initialized",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 8,
+        "contract": "contracts/Punish.sol:Punish",
+        "label": "initializing",
+        "offset": 1,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 73,
+        "contract": "contracts/Punish.sol:Punish",
+        "label": "______gap",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 136,
+        "contract": "contracts/Punish.sol:Punish",
+        "label": "VALIDATOR_CONTRACT",
+        "offset": 0,
+        "slot": "51",
+        "type": "t_contract(IValidators)6439"
+      },
+      {
+        "astId": 138,
+        "contract": "contracts/Punish.sol:Punish",
+        "label": "PUBLISH_CONTRACT",
+        "offset": 0,
+        "slot": "52",
+        "type": "t_contract(IPunish)6322"
+      },
+      {
+        "astId": 140,
+        "contract": "contracts/Punish.sol:Punish",
+        "label": "PROPOSAL_CONTRACT",
+        "offset": 0,
+        "slot": "53",
+        "type": "t_contract(IProposal)6314"
+      },
+      {
+        "astId": 142,
+        "contract": "contracts/Punish.sol:Punish",
+        "label": "RESERVEPOOL_CONTRACT",
+        "offset": 0,
+        "slot": "54",
+        "type": "t_contract(IReservePool)6330"
+      },
+      {
+        "astId": 144,
+        "contract": "contracts/Punish.sol:Punish",
+        "label": "EPOCH",
+        "offset": 0,
+        "slot": "55",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 81,
+        "contract": "contracts/Punish.sol:Punish",
+        "label": "admin",
+        "offset": 0,
+        "slot": "56",
+        "type": "t_address"
+      },
+      {
+        "astId": 824,
+        "contract": "contracts/Punish.sol:Punish",
+        "label": "punishThreshold",
+        "offset": 0,
+        "slot": "57",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 826,
+        "contract": "contracts/Punish.sol:Punish",
+        "label": "removeThreshold",
+        "offset": 0,
+        "slot": "58",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 828,
+        "contract": "contracts/Punish.sol:Punish",
+        "label": "decreaseRate",
+        "offset": 0,
+        "slot": "59",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 839,
+        "contract": "contracts/Punish.sol:Punish",
+        "label": "_punishRecords",
+        "offset": 0,
+        "slot": "60",
+        "type": "t_mapping(t_address,t_struct(PunishRecord)835_storage)"
+      },
+      {
+        "astId": 842,
+        "contract": "contracts/Punish.sol:Punish",
+        "label": "punishValidators",
+        "offset": 0,
+        "slot": "61",
+        "type": "t_array(t_address)dyn_storage"
+      },
+      {
+        "astId": 846,
+        "contract": "contracts/Punish.sol:Punish",
+        "label": "_punished",
+        "offset": 0,
+        "slot": "62",
+        "type": "t_mapping(t_uint256,t_bool)"
+      },
+      {
+        "astId": 850,
+        "contract": "contracts/Punish.sol:Punish",
+        "label": "_decreased",
+        "offset": 0,
+        "slot": "63",
+        "type": "t_mapping(t_uint256,t_bool)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_address)dyn_storage": {
+        "base": "t_address",
+        "encoding": "dynamic_array",
+        "label": "address[]",
+        "numberOfBytes": "32"
+      },
+      "t_array(t_uint256)50_storage": {
+        "base": "t_uint256",
+        "encoding": "inplace",
+        "label": "uint256[50]",
+        "numberOfBytes": "1600"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_contract(IProposal)6314": {
+        "encoding": "inplace",
+        "label": "contract IProposal",
+        "numberOfBytes": "20"
+      },
+      "t_contract(IPunish)6322": {
+        "encoding": "inplace",
+        "label": "contract IPunish",
+        "numberOfBytes": "20"
+      },
+      "t_contract(IReservePool)6330": {
+        "encoding": "inplace",
+        "label": "contract IReservePool",
+        "numberOfBytes": "20"
+      },
+      "t_contract(IValidators)6439": {
+        "encoding": "inplace",
+        "label": "contract IValidators",
+        "numberOfBytes": "20"
+      },
+      "t_mapping(t_address,t_struct(PunishRecord)835_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct Punish.PunishRecord)",
+        "numberOfBytes": "32",
+        "value": "t_struct(PunishRecord)835_storage"
+      },
+      "t_mapping(t_uint256,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_struct(PunishRecord)835_storage": {
+        "encoding": "inplace",
+        "label": "struct Punish.PunishRecord",
+        "members": [
+          {
+            "astId": 830,
+            "contract": "contracts/Punish.sol:Punish",
+            "label": "missedBlocksCounter",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 832,
+            "contract": "contracts/Punish.sol:Punish",
+            "label": "index",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 834,
+            "contract": "contracts/Punish.sol:Punish",
+            "label": "exist",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_bool"
+          }
+        ],
+        "numberOfBytes": "96"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

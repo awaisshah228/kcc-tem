@@ -21,8 +21,8 @@ describe("Get validators by the manager's address", function () {
 
     const MAX_VALIDATORS = 29; // the max number of validators
     const INITIAL_FEE_SHARE = 2000; // initial commission fee rate for validator  20%
-    const MIN_SELF_BALLOTS_IN_KCS = ethers.constants.WeiPerEther.mul(10000); // minimum Self Ballots denominated in KCS
-    const MIN_SELF_BALLOTS = MIN_SELF_BALLOTS_IN_KCS.div(ethers.constants.WeiPerEther);
+    const MIN_SELF_BALLOTS_IN_egc = ethers.constants.WeiPerEther.mul(10000); // minimum Self Ballots denominated in egc
+    const MIN_SELF_BALLOTS = MIN_SELF_BALLOTS_IN_egc.div(ethers.constants.WeiPerEther);
 
     beforeEach(async()=>{
 
@@ -37,7 +37,7 @@ describe("Get validators by the manager's address", function () {
         initialManagers = others.slice(MAX_VALIDATORS + 2, MAX_VALIDATORS*2 + 3 );
 
 
-        await setBalance(validatorContract.address,MIN_SELF_BALLOTS_IN_KCS.mul(initialValidators.length));
+        await setBalance(validatorContract.address,MIN_SELF_BALLOTS_IN_egc.mul(initialValidators.length));
  
         // initialize for the first time
         await validatorContract.initialize(

@@ -132,6 +132,11 @@ const config: HardhatUserConfig = {
       accounts : (process.env.DENET_PRIVATE_KEYS || "0xa3f5fbad1692c5b72802300aefb5b760364018018ddb5fe7589a2203d0d10e60").split(','),
       saveDeployments: true
     },
+    egc:{
+      url: process.env.EGC_RPC || "",
+      accounts : (process.env.EGC_PRIVATE_KEY || "0xa3f5fbad1692c5b72802300aefb5b760364018018ddb5fe7589a2203d0d10e60").split(','),
+      saveDeployments: true
+    },
   },
   gasReporter: {
     enabled: process.env.REPORT_GAS !== undefined,

@@ -20,7 +20,7 @@ describe("validators: test for setxxx ", function () {
     let candiates: SignerWithAddress[];
     let initialValidators: SignerWithAddress[];
 
-    const MIN_SELF_BALLOTS_IN_KCS = ethers.constants.WeiPerEther.mul(10000); // minimum m
+    const MIN_SELF_BALLOTS_IN_egc = ethers.constants.WeiPerEther.mul(10000); // minimum m
 
 
     beforeEach(async () => {
@@ -35,8 +35,8 @@ describe("validators: test for setxxx ", function () {
 
         candiates = others.slice(7);
 
-        // initial KCS in contract
-        await setBalance(validatorContract.address, MIN_SELF_BALLOTS_IN_KCS.mul(initialValidators.length));
+        // initial egc in contract
+        await setBalance(validatorContract.address, MIN_SELF_BALLOTS_IN_egc.mul(initialValidators.length));
 
         // initialize for the first time
         await validatorContract.initialize(

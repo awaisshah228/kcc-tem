@@ -56,7 +56,7 @@
 - withdrawBlockReward 
  - 只有 Validator 合约才可以调用  
  - 一个区块内只能调用一次   
- - 验证取出的  KCS 的数量是对的 
+ - 验证取出的  egc 的数量是对的 
 
 - setState 
  - 只有 admin 可以调用  
@@ -66,7 +66,7 @@
  - 确保修改之后的值是正确的  
 
 - receive  
- - 确保 fallback 函数能够正常接受 kcs  
+ - 确保 fallback 函数能够正常接受 egc  
 
 
 ## Validators.sol 
@@ -119,7 +119,7 @@
  - 只能 miner 调用  
  - 一个区块只能调用一次  
  - 比如有 n 个 active validators，验证每一个 pool 的 accRewardPerShare && pendingFee  
- - 验证收支平衡： 所有 validators 的 Pool 分得奖励 + （旧的 RewardsLeft）- （新的 RewardsLeft） == 从 ReservePool 获得的 KCS 数量 （使用多个 cases，Staker/validator 的数量从少到多）（重点，cases 要多一点） 
+ - 验证收支平衡： 所有 validators 的 Pool 分得奖励 + （旧的 RewardsLeft）- （新的 RewardsLeft） == 从 ReservePool 获得的 egc 数量 （使用多个 cases，Staker/validator 的数量从少到多）（重点，cases 要多一点） 
 
 
 

@@ -32,8 +32,8 @@ contract ReservePool is Params, Admin, IReservePool {
     }
 
     // The state of the reservePool:
-    //  - DISABLED: no KCS can be withrawn from the reservePool
-    //  - ENABLED: KCS can be withdrawn from the reservePool
+    //  - DISABLED: no egc can be withrawn from the reservePool
+    //  - ENABLED: egc can be withdrawn from the reservePool
     State public state;
 
     function initialize(
@@ -88,7 +88,7 @@ contract ReservePool is Params, Admin, IReservePool {
 
         // solhint-disable avoid-low-level-calls
         (bool success, ) = msg.sender.call{value: amount}(new bytes(0));
-        require(success, "ReservePool: KCS transfer failed");
+        require(success, "ReservePool: egc transfer failed");
 
         emit Withdraw(msg.sender, amount);
 

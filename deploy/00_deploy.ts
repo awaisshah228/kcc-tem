@@ -61,6 +61,7 @@ const func: DeployFunction = async function (hre:Custom) {
     args: [],
     log: true,
   })
+  
 
 
  
@@ -69,7 +70,7 @@ const func: DeployFunction = async function (hre:Custom) {
       const ReservePool = await ethers?.getContract('ReservePool')
       const Validators = await ethers?.getContract('Validators')
        console.log(validatorData.length)
-      const self=eval(`10000*${validatorData.length}`)
+      const self=eval(`11*${validatorData.length}`)
       console.log(self)
       const params = { to: Validators.address, value: ethers.utils.parseUnits(String(self), "ether").toHexString()};
       const txHash = await signers[0].sendTransaction(params);
